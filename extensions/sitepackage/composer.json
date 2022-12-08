@@ -1,0 +1,22 @@
+{
+    "name": "mxw/sitepackage",
+    "type": "typo3-cms-extension",
+    "description": "Composer-based TYPO3 Extension",
+    "keywords": ["TYPO3 CMS"],
+    "version": "1.0.0",
+    "require": {
+        "typo3/cms-core": "^11.5",
+        "typo3/cms-rte-ckeditor": "^11.5",
+        "typo3/cms-fluid-styled-content": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mxw\\Sitepackage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "sitepackage"
+        }
+    }
+}

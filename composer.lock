@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db03380a6c2a0d6063ff5efcdf01c6b8",
+    "content-hash": "d53f2306c47e02c818889b1fcef4fa9a",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2027,6 +2027,38 @@
                 "source": "https://github.com/matthiasmullie/path-converter/tree/1.1.3"
             },
             "time": "2019-02-05T23:41:09+00:00"
+        },
+        {
+            "name": "mxw/sitepackage",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./extensions/sitepackage",
+                "reference": "0373bef41a312cbe1924ae4f6b824bfd685ecea2"
+            },
+            "require": {
+                "typo3/cms-core": "^11.5",
+                "typo3/cms-fluid-styled-content": "^11.5",
+                "typo3/cms-rte-ckeditor": "^11.5"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "sitepackage"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mxw\\Sitepackage\\": "Classes/"
+                }
+            },
+            "description": "Composer-based TYPO3 Extension",
+            "keywords": [
+                "TYPO3 CMS"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "nikic/php-parser",

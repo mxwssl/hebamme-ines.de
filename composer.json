@@ -41,7 +41,8 @@
     "internetgalerie/ig-slug": "^1.0",
     "lochmueller/staticfilecache": "^12.5",
     "plan2net/webp": "^4.1",
-    "t3/min": "^2.1"
+    "t3/min": "^2.1",
+    "mxw/sitepackage": "^1.0"
   },
   "authors": [
     {
