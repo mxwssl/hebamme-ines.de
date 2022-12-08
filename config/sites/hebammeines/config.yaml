@@ -1,0 +1,32 @@
+base: '%env(BASE_DOMAIN)%'
+websiteTitle: '%env(SITE_NAME)%'
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    base: /
+    typo3Language: de
+    locale: de_DE
+    iso-639-1: de
+    navigationTitle: Deutsch
+    hreflang: de-DE
+    direction: ''
+    flag: de
+    languageId: 0
+rootPageId: 1
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    suffix: ''
+    index: ''
+    map:
+      /: 0
+      sitemap.xml: 1533906435
+      feed.rss: 9818
+routes:
+  -
+    route: robots.txt
+    type: staticText
+    content: ''
+txCsseoXdefault: 0
