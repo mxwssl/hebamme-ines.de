@@ -1,0 +1,13 @@
+@charset "utf-8";
+/**
+ * layout.scss
+ *
+ * @package TILDA
+ * @version 0.0.1
+ */
+
+:root {
+    @each $name, $value in $colors {
+        --tl-color-#{$name}: #{$value};
+    }
+}

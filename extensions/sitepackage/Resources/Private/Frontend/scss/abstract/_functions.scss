@@ -1,0 +1,17 @@
+@charset "utf-8";
+/**
+ * functions.scss
+ *
+ * @package TILDA
+ * @version 0.0.1
+ */
+
+/**
+ * Return specific color
+ */
+@function color($color) {
+    @if null == map-get($colors, $color) {
+        @warn 'color(): "#{$color}" is not defined. Available colors are: #{map-keys($colors)}';
+    }
+    @return map-get($colors, $color);
+}

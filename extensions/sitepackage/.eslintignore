@@ -1,0 +1,5 @@
+dist/
+Public/
+
+# dependencies
+node_modules/

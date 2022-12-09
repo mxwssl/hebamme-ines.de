@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": [
+    "**/*.{html,twig,js}"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "comment-empty-line-before": null,
+    "indentation": 4,
+    "number-leading-zero": "never"
+  }
+}

@@ -1,0 +1,48 @@
+@charset "utf-8";
+/**
+ * variables.scss
+ *
+ * @package TILDA
+ * @version 0.0.1
+ */
+
+/**
+ * Colors
+ * https://chir.ag/projects/name-that-color/
+ */
+
+/* @color */
+$colors: (
+    'black': #000,
+    'white': #fff
+);
+/* /@color */
+
+/**
+ * Breakpoints
+ */
+$points: (
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+    xxl: 1400
+);
+
+$grid-column-gutter: (
+    xs: 40,
+    lg: 30
+) !default;
+
+$breakpoint-classes: map-keys($points) !default;
+
+// merge default breakpoints
+$breakpoints: map-merge($points, (
+    small: map-get($points, xs),
+    medium: map-get($points, md),
+    large: map-get($points, lg),
+)) !default;
+
+$grid-column-alias: false !default;
+$-zf-zero-breakpoint: xs !default;

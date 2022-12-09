@@ -1,0 +1,14 @@
+.env
+.package-lock.json
+
+# dependencies
+node_modules/
+var/
+vendor/
+
+# IDEs and editors
+/.idea
+
+# System Files
+.DS_Store
+Thumbs.db
