@@ -15,3 +15,10 @@
     }
     @return map-get($colors, $color);
 }
+
+/**
+ * Return encoded string
+ */
+ @function base64($color) {
+    @return '%23' + str-slice(#{color($color)}, 2);
+}

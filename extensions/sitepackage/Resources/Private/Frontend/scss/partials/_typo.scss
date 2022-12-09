@@ -5,3 +5,338 @@
  * @package TILDA
  * @version 0.0.1
  */
+
+$colors: map-merge($colors, (
+    primary: color('moss'),
+    secondary: color('zanah'),
+    alert: #FF7070,
+    success: #8BB31D
+)) !global;
+
+$foundation-palette: map-merge($foundation-palette, $colors);
+@include add-foundation-colors;
+
+$button-font-family: $hero-font-family !global;
+$button-margin: $global-margin * .5 0 !global;
+$button-padding: rem-calc(10 18) !global;
+$button-radius: 0 !global;
+$button-transition: border 100ms, color 100ms, background 100ms ease-in-out, box-shadow 300ms ease-in-out !global;
+
+$button-sizes: (
+    default: rem-calc(17)
+) !global;
+
+$button-palette: $foundation-palette;
+
+$header-styles: (
+    xs: (
+        'h1': ('font-size': 26, 'line-height': 1.2),
+        'h2': ('font-size': 26, 'line-height': 1.2),
+        'h3': ('font-size': 24, 'line-height': 1.2),
+        'h4': ('font-size': 20, 'line-height': 1.2),
+        'h5': ('font-size': 18, 'line-height': 1.2),
+        'h6': ('font-size': 18, 'line-height': 1.2),
+    ),
+    lg: (
+        'h1': ('font-size': 46, 'line-height': 1),
+        'h2': ('font-size': 40, 'line-height': 1),
+        'h3': ('font-size': 30, 'line-height': 1),
+        'h4': ('font-size': 20, 'line-height': 1),
+    )
+) !global;
+
+@include foundation-typography-base;
+
+body {
+    font-size: rem-calc(16);
+}
+
+h1,
+.h1 {
+    color: $primary-color;
+    font: {
+        family: $hero-font-family;
+        weight: 400;
+    }
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+h2,
+.h2 {
+    color: $primary-color;
+    font: {
+        family: $hero-font-family;
+        weight: 400;
+    }
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+h3,
+.h3 {
+    font: {
+        family: $hero-font-family;
+        weight: 400;
+    }
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+h4,
+.h4 {
+    font-weight: $global-weight-bold;
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+    font-weight: $global-weight-bold;
+    margin-bottom: $paragraph-margin-bottom;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+        outline: none;
+    }
+
+    &:active,
+    &:hover {
+        color: color('grey-700');
+        text-decoration: underline;
+    }
+
+    &:focus {
+        color: color('beryl');
+        text-decoration: underline;
+    }
+}
+
+blockquote {
+    border: none;
+    color: color('grey-700');
+    display: table;
+    font-style: italic;
+    line-height: inherit;
+    margin: $paragraph-margin-bottom * 1.5 0 $paragraph-margin-bottom * 2;
+    padding: 0;
+
+    &:before {
+        background: {
+            image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='63.145' height='54.127'%3E%3Cpath d='m62.9 50.978-6.939-12.546a25.224 25.224 0 0 0 2.708-11.368C58.669 12.117 45.536.001 29.336.001S0 12.117 0 27.063s13.133 27.063 29.333 27.063a30.972 30.972 0 0 0 16.118-4.45l15.189 4.169a1.98 1.98 0 0 0 2.257-2.868ZM25.83 33.552a8.084 8.084 0 0 1-6.636 2.986 2.019 2.019 0 1 1 0-4.037 4.044 4.044 0 0 0 3.46-1.441 7.5 7.5 0 0 0 1.288-3.786H18.9a1.514 1.514 0 0 1-1.514-1.514v-6.51a1.514 1.514 0 0 1 1.514-1.514h6.51a2.19 2.19 0 0 1 1.961 1.564 28.875 28.875 0 0 1 .68 5.115c.172 3.968-.578 7.041-2.223 9.137Zm13.963 0a8.083 8.083 0 0 1-6.636 2.986 2.019 2.019 0 0 1 0-4.037 4.043 4.043 0 0 0 3.46-1.441 7.494 7.494 0 0 0 1.288-3.786h-5.036a1.514 1.514 0 0 1-1.514-1.514v-6.51a1.514 1.514 0 0 1 1.514-1.514h6.51A2.19 2.19 0 0 1 41.34 19.3a28.906 28.906 0 0 1 .68 5.115c.166 3.968-.584 7.041-2.229 9.137Z' fill='" + base64('zanah') + "'/%3E%3C/svg%3E");
+            position: left top .15em;
+            repeat: no-repeat;
+            size: 1em;
+        };
+        display: table-cell;
+        height: 1em;
+        width: 1.5em;
+        font-size: rem-calc(45);
+        content: '';
+        line-height: inherit;
+        vertical-align: top;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    cite {
+        color: inherit;
+        display: block;
+        font-size: 1rem;
+        font-style: normal;
+        line-height: 1;
+        margin-top: 1em;
+        text-align: right;
+
+        &:before {
+            content: '- ';
+        }
+    }
+}
+
+picture {
+    @at-root img, & {
+        border-radius: rem-calc(1);
+        display: inline-block;
+        margin-bottom: $paragraph-margin-bottom;
+    }
+
+    img {
+        margin: 0;
+    }
+}
+
+// overwrite: line 72, bower_components/foundation-sites/scss/vendor/normalize.scss
+b, strong {
+    font-weight: $global-weight-bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $paragraph-margin-bottom;
+
+    li {
+        display: table;
+        padding-left: rem-calc(15);
+        width: 100%;
+
+        &:before {
+            color: inherit;
+            content: '•';
+            display: table-cell;
+            text-indent: rem-calc(-15);
+            vertical-align: baseline;
+            color: $primary-color;
+        }
+    }
+
+    ul {
+        font-style: italic;
+        margin: 0;
+    }
+}
+
+ol {
+    counter-reset: order;
+    list-style: none;
+    margin: 0 0 $paragraph-margin-bottom;
+    padding: 0;
+
+    li {
+        counter-increment: order;
+        display: table;
+        padding-left: rem-calc(20);
+        width: 100%;
+
+        &:before {
+            color: inherit;
+            content: counters(order, '.') '. ';
+            display: table-cell;
+            text-indent: rem-calc(-20);
+        }
+    }
+
+    ol {
+        margin: 0;
+
+        li {
+            font-style: italic;
+            padding-left: rem-calc(30);
+
+            &:before {
+                content: counters(order, '.') ' ';
+                text-indent: rem-calc(-30);
+            }
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: $global-radius;
+    border: none;
+    font-size: rem-calc(14);
+    line-height: rem-calc(20);
+    margin: $paragraph-margin-bottom 0 $paragraph-margin-bottom * 2;
+    max-width: 100%;
+    position: relative;
+
+    &:before {
+        border: 1px solid color('beryl');
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+tr {
+    border-bottom: 1px solid color('beryl');
+}
+
+td, th {
+    padding: rem-calc(12 15);
+    vertical-align: top;
+    text-align: left;
+
+    /*
+     * stretch cells without whitespace
+     */
+    &:before {
+        content: '';
+        display: block;
+        height: 0;
+        width: 8em;
+    }
+}
+
+th {
+    background-color: color('beryl');
+}
+
+dl {
+    border: 1px solid color('beryl');
+    display: table;
+    font-size: rem-calc(14);
+    line-height: rem-calc(20);
+    margin: 0 0 $paragraph-margin-bottom;
+    max-width: 100%;
+    position: relative;
+
+    dt {
+        background-color: color('beryl');
+        font-weight: bold;
+        margin: 0;
+        padding: rem-calc(12 15);
+    }
+}
+
+dd {
+    margin: 0;
+    padding: rem-calc(12 15);
+
+    & + & {
+        border-top: 1px solid color('beryl');
+    }
+}
+
+hr {
+    background: {
+        image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='54'%3E%3Cpath d='M27 0A27 27 0 1 1 0 27 27 27 0 0 1 27 0Z' fill='%239fd18d'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M17.002 39.151c0 2.987 1.532 5.1 4.03 5.51a9.033 9.033 0 0 0 7.869-2.348 23.881 23.881 0 0 0 6.639-11.41 10 10 0 0 0 .245-5.644c-1.315-4.489-4.354-7.673-9.489-7.911-4.248-.2-7.222 2.239-6.119 7.136a11.286 11.286 0 0 0 1.515 3.264c1.4 2.292 1.1 4.235-1.04 5.848-.37.279-.757.535-1.141.794a5.307 5.307 0 0 0-2.509 4.761Zm3.679-25.638a3.466 3.466 0 0 0 3.431 3.611 3.562 3.562 0 0 0 .026-7.123 3.519 3.519 0 0 0-3.457 3.512Zm11.571 2.086c-.052-1.722-.5-2.566-1.455-2.834a2.018 2.018 0 0 0-2.314.944 2.333 2.333 0 0 0 .3 2.871 2.618 2.618 0 0 0 1.522.648 4.357 4.357 0 0 0 1.52-.6c.055 1.391.552 2.239 1.475 2.4a1.742 1.742 0 0 0 1.87-.974 2.148 2.148 0 0 0-.362-2.479c-.721-.695-1.337-.698-2.557.023Zm5.376 4.612a1.651 1.651 0 0 0-1.5-1.707 1.68 1.68 0 0 0-1.563 1.736 1.529 1.529 0 0 0 1.529 1.625 1.612 1.612 0 0 0 1.534-1.659Zm1 3.474a1.415 1.415 0 0 0-1.324-1.348 1.388 1.388 0 0 0-1.235 1.515 1.468 1.468 0 0 0 1.218 1.277 1.428 1.428 0 0 0 1.337-1.444Z'/%3E%3Cpath d='M17.002 39.151a5.307 5.307 0 0 1 2.509-4.76c.384-.259.771-.516 1.141-.794 2.142-1.614 2.442-3.557 1.04-5.848a11.288 11.288 0 0 1-1.515-3.264c-1.1-4.9 1.871-7.332 6.119-7.136 5.135.238 8.174 3.422 9.489 7.911a10 10 0 0 1-.245 5.644 23.881 23.881 0 0 1-6.639 11.41 9.032 9.032 0 0 1-7.869 2.348c-2.498-.407-4.026-2.525-4.03-5.511Z'/%3E%3Cpath d='M20.681 13.513a3.519 3.519 0 0 1 3.457-3.512 3.562 3.562 0 0 1-.026 7.123 3.466 3.466 0 0 1-3.431-3.611Z'/%3E%3Cpath d='M32.252 15.598c1.22-.721 1.833-.719 2.555-.025a2.148 2.148 0 0 1 .362 2.479 1.742 1.742 0 0 1-1.87.974c-.923-.161-1.42-1.009-1.475-2.4a4.357 4.357 0 0 1-1.52.6 2.619 2.619 0 0 1-1.522-.648 2.333 2.333 0 0 1-.3-2.871 2.018 2.018 0 0 1 2.314-.944c.959.269 1.404 1.114 1.456 2.835Z'/%3E%3Cpath d='M37.628 20.211a1.612 1.612 0 0 1-1.529 1.654 1.529 1.529 0 0 1-1.529-1.625 1.68 1.68 0 0 1 1.563-1.736 1.651 1.651 0 0 1 1.495 1.707Z'/%3E%3Cpath d='M38.624 23.689a1.428 1.428 0 0 1-1.334 1.443 1.468 1.468 0 0 1-1.225-1.276 1.387 1.387 0 0 1 1.235-1.515 1.415 1.415 0 0 1 1.324 1.348Z'/%3E%3C/g%3E%3C/svg%3E");
+        size: contain;
+        position: center;
+        repeat: no-repeat;
+    }
+    border: {
+        style: solid;
+        color: transparent;
+        width: 0;
+    };
+    height: rem-calc(35);
+    margin: rem-calc(35) auto;
+    width: 100%;
+
+    @include breakpoint(lg) {
+        margin: rem-calc(70) auto;
+    }
+
+    @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+        max-width: $global-width - rem-calc($-zf-bp-value);
+    }
+}
+
+iframe {
+    border: none;
+    max-width: 100%;
+}

@@ -5,3 +5,58 @@
  * @package TILDA
  * @version 0.0.1
  */
+
+/* FiraSans-Book - regular */
+@font-face {
+    font-display: swap;
+    font-family: FiraSans;
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../Fonts/fira-sans/FiraSans-Book.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../Fonts/fira-sans/FiraSans-Book.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Muli - light */
+@font-face {
+    font-display: swap;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+         url('../Fonts/muli/Muli-Light.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../Fonts/muli/Muli-Light.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Muli - regular */
+@font-face {
+    font-display: swap;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('../Fonts/muli/Muli.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../Fonts/muli/Muli.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Muli - italic */
+@font-face {
+    font-display: swap;
+    font-family: Muli;
+    font-style: italic;
+    font-weight: 400;
+    src: local(''),
+         url('../Fonts/muli/Muli-Italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../Fonts/muli/Muli-Italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Muli - bold */
+@font-face {
+    font-display: swap;
+    font-family: Muli;
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('../Fonts/muli/Muli-Bold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../Fonts/muli/Muli-Bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

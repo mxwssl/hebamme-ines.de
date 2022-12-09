@@ -13,8 +13,14 @@
 
 /* @color */
 $colors: (
+    'beryl': #e5e3c0,
     'black': #000,
-    'white': #fff
+    'grey-400': #777,
+    'grey-700': #444,
+    'moss': #9fd18d,
+    'pearl': #fcf9d6,
+    'white': #fff,
+    'zanah': #cfe8c6
 );
 /* /@color */
 
@@ -46,3 +52,19 @@ $breakpoints: map-merge($points, (
 
 $grid-column-alias: false !default;
 $-zf-zero-breakpoint: xs !default;
+
+/**
+ * Specs
+ */
+$body-font-color: color('grey-700') !default;
+
+$body-font-family: Muli, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
+$hero-font-family: FiraSans, #{$body-font-family};
+
+$global-width: rem-calc(1200);
+$global-weight-normal: normal !default;
+$global-weight-bold: 700 !default;
+$global-radius: 0 !default;
+
+$paragraph-lineheight: rem-calc(20) !default;
+$paragraph-margin-bottom: rem-calc(20) !default;
