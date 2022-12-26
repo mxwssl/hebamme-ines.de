@@ -1,0 +1,20 @@
+<!--
+ * teaser.twig
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2022-12-26
+-->
+<div class="teaser">
+    <div class="teaser__row row">
+        {% for i in 1..3 %}
+        <div class="teaser__col column xs-12 lg-4">
+            <a href="" class="teaser__item" style="background-image:url('https://via.placeholder.com/372x455')">
+                <span class="teaser__title">
+                    {{ ['Schwangerschaft', 'Stillberatung', 'Wochenbett und Nachsorge'][i - 1] }}
+                </span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,67 @@
+@charset "utf-8";
+/**
+ * teaser.scss
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2022-12-26
+ */
+$self: '.teaser';
+
+#{$self} {
+    &__row {
+        @include grid-column-gutter(20);
+    }
+
+    &__col {
+        @include grid-column-gutter(20);
+    }
+
+    &__item {
+        color: inherit;
+        display: block;
+        position: relative;
+        text-decoration: none;
+        margin-bottom: $paragraph-margin-bottom;
+
+        @include breakpoint(md down) {
+            padding: rem-calc(100 0);
+        }
+
+        &:before {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            content: '';
+            display: block;
+            width: 100%;
+
+            @include breakpoint(lg) {
+                padding-bottom: percentage(calc(455/372));
+            }
+        }
+    }
+
+    &__title {
+        @include letter-spacing(180);
+        background: color('moss');
+        color: color('white');
+        left: 50%;
+        line-height: 1.33;
+        max-width: rem-calc(400);
+        padding: rem-calc(8 16);
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        width: 74%;
+        transition: margin 100ms, box-shadow 100ms;
+
+        #{$self}__item:hover &,
+        #{$self}__item:focus & {
+            box-shadow: 4px 4px 0 color('zanah');
+            margin: rem-calc(-4 0 0 -4);
+        }
+    }
+}
