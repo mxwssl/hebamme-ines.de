@@ -1,0 +1,183 @@
+@charset "utf-8";
+/**
+ * stage.scss
+ *
+ * @package TILDA
+ * @version 0.0.2
+ * Date: 2022-12-23
+ */
+$self: '.stage';
+
+#{$self} {
+    &__top {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 734 179'%3E%3Cpath d='M732 0c-76.4 96.7-188 159.2-310.3 173.8-18.3 2.1-36.6 3.2-55 3.2s-36.7-1.1-55-3.2c-35.5-4.2-70.4-12.4-103.9-24.6C126.3 119.6 54.9 67.9 1.3 0H0c76.5 97.2 188.6 160.1 311.5 174.8 18.3 2.1 36.7 3.2 55.1 3.2s36.8-1.1 55.1-3.2c35.6-4.2 70.5-12.5 104.2-24.7C607.7 120.4 679.4 68.4 733.2 0H732z' fill='" + base64('beryl') + "'/%3E%3C/svg%3E");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: 734px auto;
+        padding: {
+            bottom: rem-calc(48);
+            top: rem-calc(75);
+        };
+    }
+
+    &__brand {
+        background-color: color('white');
+        border-radius: 100%;
+        border: 1px solid color('beryl');
+        display: table;
+        margin: auto;
+        padding: rem-calc(30 72);
+
+        svg {
+            display: block;
+            height: auto;
+            width: rem-calc(180);
+        }
+    }
+
+    &__wrap {
+        background-color: color('pearl');
+        margin: 0 auto 0;
+        max-width: rem-calc(1440);
+        padding-bottom: calc(78/46) * 1em;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            background-color: color('white');
+            content: '';
+            display: block;
+            left: 0;
+            padding-bottom: percentage(calc(236/1440));
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+
+    &__row {
+        $position: percentage(calc(100/16/unitless-calc($global-width)));
+
+        position: relative;
+        z-index: 0;
+
+        &:before,
+        &:after {
+            background-color: color('moss');
+            content: '';
+            position: absolute;
+            width: rem-calc(2);
+        }
+
+        &:before {
+            height: rem-calc(340);
+            left: $position;
+            top: 0;
+            z-index: -1;
+
+            @include breakpoint(lg) {
+                bottom: rem-calc(50);
+                top: auto;
+            }
+        }
+
+        &:after {
+            height: rem-calc(225);
+            top: rem-calc(-105);
+            right: $position;
+            z-index: 10;
+        }
+    }
+
+    &__col {
+        &--shrink {
+            flex: 0 1 grid-column(2);
+            align-self: flex-end
+        }
+
+        &--figure {
+            @include flex-grid-size(10);
+        }
+    }
+
+    &__service {
+        margin: rem-calc(30 0);
+        position: relative;
+        width: calc(300% + #{rem-calc(map-get($grid-column-gutter, 'xs')) * 2});
+        z-index: 10;
+
+        @include breakpoint(xs down) {
+            width: calc(350% + #{rem-calc(map-get($grid-column-gutter, 'xs')) * 2.5});
+        }
+
+        @include breakpoint(md) {
+            width: calc(200% + #{rem-calc(map-get($grid-column-gutter, 'xs')) * 1.5});
+        }
+
+        @include breakpoint(xl) {
+            width: calc(150% + #{rem-calc(map-get($grid-column-gutter, 'xs'))});
+        }
+
+        li {
+            @include letter-spacing(200);
+            background-color: color('white');
+            display: block;
+            font-weight: bold;
+            margin-bottom: rem-calc(16);
+            padding: rem-calc(10 12 12);
+            text-transform: uppercase;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    &__image {
+        height: 100%;
+        margin: 0;
+        object-fit: cover;
+    }
+
+    &__quote {
+        @include flex-grid-size(8);
+        color: color('moss');
+        line-height: calc(64/46);
+        margin-top: calc(64/46) * 1em;
+        padding-bottom: .5em;
+        position: relative;
+        text-align: center;
+
+        &:before,
+        &:after {
+            background-image: none;
+            content: '[…]\00A0';
+            display: inline-block;
+            font-size: .8em;
+            height: auto;
+            margin: {
+                bottom: 0;
+                left: -1.4em;
+            }
+            opacity: .2;
+            vertical-align: baseline;
+            width: auto;
+        }
+
+        &:after {
+            margin: {
+                left: 0;
+                right: -1.4em;
+            }
+        }
+
+        cite {
+            bottom: 0;
+            opacity: .8;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
