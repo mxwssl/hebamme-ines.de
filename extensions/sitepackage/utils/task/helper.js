@@ -5,8 +5,10 @@ import { dest, src } from 'gulp'
 import cleanCss from 'gulp-clean-css'
 import compiler from 'webpack'
 import dartSass from 'sass'
+import fs from 'fs'
 import gulpSass from 'gulp-sass'
 import plumber from 'gulp-plumber'
+import sizeOf from 'image-size'
 import webpack from 'webpack-stream'
 
 /**
@@ -19,14 +21,33 @@ import { catchError, pathConf } from '../index'
  * folders
  */
 const utilPath = {
-    src: './utils/dev/src',
-    dist: './utils/dev/dist'
+    dist: './utils/dev/dist',
+    img: './utils/dev/img',
+    src: './utils/dev/src'
 }
 
 /**
  * functions
  */
 const sass = gulpSass(dartSass)
+
+// helper function not part of tasks
+const helperImages = () => {
+    const names = fs.readdirSync(utilPath.img)
+    const views = names.filter(item => item.match(/^[^.].*/g))
+    const sizes = []
+
+    if (views.length) {
+        for (const view of views) {
+            const file = `${utilPath.img}/${view}`
+            const size = sizeOf(file)
+
+            sizes.push({ path: file, ...size })
+        }
+    }
+
+    return JSON.stringify(sizes)
+}
 
 const helperScript = () => {
     return src(`${utilPath.src}/helper.scss`)
@@ -50,4 +71,4 @@ const helperStyles = () => {
         .pipe(dest(utilPath.dist))
 }
 
-export { helperScript, helperStyles }
+export { helperImages, helperScript, helperStyles }

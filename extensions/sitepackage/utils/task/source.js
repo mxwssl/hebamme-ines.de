@@ -2,6 +2,7 @@
  * packages
  */
 import { dest, series, src, watch } from 'gulp'
+import htmlmin from 'gulp-htmlmin'
 import replace from 'gulp-replace'
 import twig from 'gulp-twig'
 
@@ -19,6 +20,10 @@ const buildSource = (done) => {
     return src(pathConf.source.src)
         .pipe(twig({
             errorLogToConsole: true
+        }))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            removeComments: true
         }))
         .pipe(dest(pathConf.private.dist))
 }

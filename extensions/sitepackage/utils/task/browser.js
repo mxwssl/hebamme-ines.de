@@ -8,6 +8,7 @@ import del from 'del'
  * imports
  */
 // eslint-disable-next-line sort-imports
+import { helperImages } from './helper'
 import { pathConf } from '../index'
 
 /**
@@ -32,7 +33,7 @@ const startServer = (done) => {
         snippetOptions: {
             rule: {
                 match: /<body[^>]*>/i,
-                fn: (snippet, match) => `${match} ${snippet} <script async src="/utils/dev/dist/helper.js"></script>`
+                fn: (snippet, match) => `${match} ${snippet} <script async src="/utils/dev/dist/helper.js"></script> <script>const layouts = ${helperImages()}</script>`
             }
         }
     }, done)
