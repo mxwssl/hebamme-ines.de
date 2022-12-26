@@ -1,0 +1,60 @@
+@charset "utf-8";
+/**
+ * header.scss
+ *
+ * @package TILDA
+ * @version 0.0.2
+ * Date: 2022-12-09
+ */
+$self: '.header';
+
+#{$self} {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: background-color 100ms, box-shadow 100ms;
+    z-index: 100;
+
+    &--fixed,
+    &--solid {
+        color: color('black');
+        background-color: color('white');
+    }
+
+    &--fixed {
+        box-shadow: 0 0 30px rgba(black, .15);
+    }
+
+    &__row {
+        padding: rem-calc(12 0);
+    }
+
+    &__col {
+        &--shrink {
+            @include grid-column-gutter();
+            flex: 0 1 auto;
+        }
+
+        &--noshrink {
+            flex: 0 0 auto;
+        }
+    }
+
+    &__brand {
+        display: block;
+        font: {
+            family: $hero-font-family;
+            size: rem-calc(26.5);
+        };
+        line-height: calc(36/46);
+        margin-bottom: calc(-6/46) * 1em;
+
+        span {
+            display: block;
+            font-size: calc(36/46) * 1em;
+            line-height: 1;
+            margin-top: rem-calc(2);
+        }
+    }
+}

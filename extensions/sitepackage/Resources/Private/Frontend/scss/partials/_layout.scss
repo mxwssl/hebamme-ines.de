@@ -11,3 +11,10 @@
         --tl-color-#{$name}: #{$value};
     }
 }
+
+.site {
+    &__content {
+        max-width: 100%;
+        overflow: hidden;
+    }
+}

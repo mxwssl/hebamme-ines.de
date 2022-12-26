@@ -1,0 +1,130 @@
+@charset "utf-8";
+/**
+ * trigger.scss
+ *
+ * @package TILDA
+ * @version 0.0.2
+ * Date: 2022-12-09
+ */
+$self: '.trigger';
+
+#{$self} {
+    display: table;
+    text-align: right;
+    vertical-align: middle;
+    position: relative;
+    z-index: 10;
+
+    &__button {
+        color: inherit;
+        cursor: pointer;
+        display: flex;
+        vertical-align: middle;
+
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        font-size: 1rem;
+        height: rem-calc(14);
+        margin: rem-calc(2 0);
+        order: 1;
+        position: relative;
+        text-align: left;
+        width: rem-calc(25);
+
+        @include breakpoint(xl) {
+            margin: {
+                left: auto;
+                right: auto;
+            };
+        }
+
+        i, &:before, &:after {
+            background-color: color('grey-400');
+            border-radius: 1px;
+            display: inline-block;
+            height: rem-calc(2);
+            margin: rem-calc(6) 0;
+            width: 100%;
+        }
+
+        i {
+            transition: width 200ms, opacity 200ms 250ms ease;
+            width: rem-calc(20);
+
+            #{$self}__button:hover & {
+                width: 100%;
+            }
+        }
+
+        &:before, &:after {
+            content: '';
+            font-size: 1em;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            width: 100%;
+
+            #{$self}__button:hover & {
+                width: 80%;
+            }
+        }
+
+        &:before {
+            top: 0;
+            transform-origin: center top;
+            transform: translate3d(0, -50%, 0);
+            transition: width 200ms, top 200ms 250ms ease, transform 200ms ease-in-out;
+        }
+
+        &:after {
+            bottom: 0;
+            transform-origin: center bottom;
+            transform: translate3d(0, 50%, 0);
+            transition: width 200ms, bottom 200ms 250ms ease, transform 200ms ease-in-out;
+        }
+
+        [data-toggle] & {
+            i {
+                opacity: 0;
+                transition: width 200ms, opacity 200ms ease;
+                width: rem-calc(15) !important;
+            }
+
+            &:before {
+                background-color: color('grey-400');
+                top: 50%;
+                transform: rotate(45deg) translate3d(0, -50%, 0);
+                transition: width 200ms, top 200ms ease, transform 200ms 250ms ease-in-out;
+                width: 100% !important;
+            }
+
+            &:after {
+                background-color: color('grey-400');
+                bottom: 50%;
+                transform: rotate(-45deg) translate3d(0, 50%, 0);
+                transition: width 200ms, bottom 200ms ease, transform 200ms 250ms ease-in-out;
+                width: 100% !important;
+            }
+        }
+    }
+
+    &__label {
+        @include hide-for(lg);
+        display: block;
+        line-height: 1;
+        font-family: $hero-font-family;
+        margin-right: rem-calc(5);
+        padding-top: rem-calc(2);
+        transition: opacity 200ms;
+
+        [data-toggle] & {
+            opacity: 0;
+        }
+    }
+}

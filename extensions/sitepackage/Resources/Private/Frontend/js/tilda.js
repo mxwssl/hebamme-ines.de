@@ -2,9 +2,19 @@ import $ from 'jquery'
 
 const Tilda = {
     Component: {},
-    Element: {},
-    Function: {},
+    Element: {
+        docRoot: document.scrollingElement || document.documentElement
+    },
+    Function: {
+        getOffset: function () {
+            return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        }
+    },
     Variable: {}
 }
+
+window.addEventListener('load', event => {
+    document.querySelector('body').classList.add('domready')
+})
 
 export { $, Tilda }

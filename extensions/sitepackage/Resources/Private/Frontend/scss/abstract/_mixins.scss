@@ -5,3 +5,7 @@
  * @package TILDA
  * @version 0.0.1
  */
+
+@mixin letter-spacing($value) {
+    letter-spacing: unquote(calc($value/1000) + 'em');
+}

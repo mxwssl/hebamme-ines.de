@@ -1,0 +1,20 @@
+<!--
+ * header.twig
+ *
+ * @package TILDA
+ * @version 0.0.2
+ * Date: 2022-12-09
+-->
+<div class="header">
+    <div class="header__row row align-middle">
+        <div class="header__col--noshrink header__col column hide-for-lg">
+            <a href="" class="header__brand">Hebamme <span>Ines Liske</span></a>
+        </div>
+        <div class="header__col column">
+            {% include '../navmain/navmain.twig' %}
+        </div>
+        <div class="header__col--shrink header__col column hide-for-lg">
+            {% include "../trigger/trigger.twig" %}
+        </div>
+    </div>
+</div>

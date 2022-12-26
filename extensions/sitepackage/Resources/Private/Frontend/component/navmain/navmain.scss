@@ -1,0 +1,210 @@
+@charset "utf-8";
+/**
+ * navmain.scss
+ *
+ * @package TILDA
+ * @version 0.0.2
+ * Date: 2022-12-09
+ */
+$self: '.navmain';
+
+#{$self} {
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint(md down) {
+        background-color: color('pearl');
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        padding: rem-calc(65 0);
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform-origin: top center;
+        transform: translateY(-20%) scaleY(0);
+        visibility: hidden;
+        will-change: opacity, transform, visibility;
+        z-index: -1;
+    }
+
+    @include breakpoint(lg) {
+        @include grid-row-nest();
+    }
+
+    .domready & {
+        transition: opacity 250ms ease-in, transform 300ms ease-in, visibility 250ms ease-in;
+    }
+
+    [data-toggle] & {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+        visibility: visible;
+    }
+
+    [data-delay] & {
+        transition: none;
+    }
+
+    &__list {
+        @include letter-spacing(200);
+        margin: 0;
+
+        @include breakpoint(sm down) {
+            background-size: 734px auto !important;
+        }
+
+        @include breakpoint(md down) {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 734 179'%3E%3Cpath d='M732 0c-76.4 96.7-188 159.2-310.3 173.8-18.3 2.1-36.6 3.2-55 3.2s-36.7-1.1-55-3.2c-35.5-4.2-70.4-12.4-103.9-24.6C126.3 119.6 54.9 67.9 1.3 0H0c76.5 97.2 188.6 160.1 311.5 174.8 18.3 2.1 36.7 3.2 55.1 3.2s36.8-1.1 55.1-3.2c35.6-4.2 70.5-12.5 104.2-24.7C607.7 120.4 679.4 68.4 733.2 0H732z' fill='" + base64('beryl') + "'/%3E%3C/svg%3E");
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            flex-basis: 100%;
+            padding: {
+                bottom: rem-calc(40);
+                top: rem-calc(40);
+            };
+            text-align: center;
+        }
+
+        @include breakpoint(lg) {
+            display: flex;
+            flex: 1 0 auto;
+        }
+    }
+
+    &__sub {
+        padding: rem-calc(10 0);
+    }
+
+    &__item {
+        display: block;
+        padding: 0;
+        width: auto;
+
+        &:before {
+            content: none;
+        }
+
+        &:not(:last-child) {
+            @include breakpoint(md down) {
+                margin-bottom: rem-calc(5);
+            }
+
+            @include breakpoint(lg) {
+                margin-right: rem-calc(40);
+            }
+        }
+
+        &--parent {
+            position: relative;
+        }
+
+        #{$self}__sub & {
+            margin: 0;
+        }
+    }
+
+    &__link {
+        color: color('grey-400');
+        display: block;
+        font-size: rem-calc(16);
+        font-weight: bold;
+        padding: rem-calc(10 0);
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &--active {
+            color: color('grey-700');
+        }
+
+        #{$self}__item--parent > & {
+            &:after {
+                content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z' fill='" + base64('grey-400') + "'/%3E%3C/svg%3E");
+                display: inline-block;
+                height: .8em;
+                margin: {
+                    left: rem-calc(12);
+                    top: rem-calc(2);
+                };
+                vertical-align: top;
+                width: .8em;
+            }
+        }
+
+        #{$self}__item--parent:hover &,
+        #{$self}__item--parent:focus & {
+            margin: rem-calc(0 -20);
+            padding: {
+                left: rem-calc(20);
+                right: rem-calc(20);
+            };
+            background-color: color('pearl');
+        }
+
+        &--sub {
+            font-weight: 400;
+            margin: 0;
+            padding: rem-calc(5 0);
+            text-transform: none;
+        }
+    }
+
+    &__sub {
+        @include breakpoint(lg) {
+            background-color: color('pearl');
+            left: rem-calc(-20);
+            opacity: 0;
+            padding: rem-calc(0 20 20);
+            position: absolute;
+            top: 100%;
+            visibility: hidden;
+
+            #{$self}__item--parent:hover &,
+            #{$self}__item--parent:focus & {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__call {
+        @include letter-spacing(80);
+        color: color('grey-400');
+        flex-basis: 100%;
+        font-size: rem-calc(16);
+        margin-bottom: 0;
+        padding: {
+            bottom: rem-calc(40);
+            top: rem-calc(40);
+        };
+        text-align: center;
+        text-transform: uppercase;
+
+        @include breakpoint(lg) {
+            font-weight: bold;
+            display: flex;
+            flex: 0 1 auto;
+            padding: {
+                bottom: 0;
+                top: 0;
+            };
+        }
+
+        li {
+            padding: 0;
+
+            &:before {
+                content: none;
+            }
+
+            &:not(:last-child) {
+                @include breakpoint(lg) {
+                    margin-right: rem-calc(30);
+                }
+            }
+        }
+    }
+}
