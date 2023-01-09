@@ -1,0 +1,20 @@
+@charset "utf-8";
+/**
+ * banner.scss
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-01-08
+ */
+$self: '.banner';
+
+#{$self} {
+    &__content {
+        border: 3px solid color('moss');
+        padding: rem-calc(36 30);
+    }
+
+    &__header {
+        color: $body-font-color;
+    }
+}

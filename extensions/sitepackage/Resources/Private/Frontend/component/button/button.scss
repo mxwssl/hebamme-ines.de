@@ -1,0 +1,56 @@
+@charset "utf-8";
+/**
+ * button.scss
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-01-09
+ */
+$self: '.button';
+
+#{$self} {
+    @include letter-spacing(220);
+    @include button-base();
+    background-color: color('moss');
+    color: color('white');
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-right: rem-calc(10);
+    }
+
+    &--light {
+        background-color: color('beryl');
+        color: color('grey-400');
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: color('grey-400');
+        color: color('white');
+        outline: none;
+        text-decoration: none;
+    }
+
+    &[href^=mailto] {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &[disabled],
+    &[readonly] {
+        background-color: color('pearl');
+        color: color('beryl');
+        cursor: not-allowed;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: color('pearl');
+            color: color('beryl');
+        }
+    }
+}

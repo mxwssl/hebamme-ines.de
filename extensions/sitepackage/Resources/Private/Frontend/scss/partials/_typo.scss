@@ -17,13 +17,14 @@ $foundation-palette: map-merge($foundation-palette, $colors);
 @include add-foundation-colors;
 
 $button-font-family: $hero-font-family !global;
+$button-font-weight: bolder !default;
 $button-margin: $global-margin * .5 0 !global;
-$button-padding: rem-calc(10 18) !global;
+$button-padding: rem-calc(10 20 12) !global;
 $button-radius: 0 !global;
 $button-transition: border 100ms, color 100ms, background 100ms ease-in-out, box-shadow 300ms ease-in-out !global;
 
 $button-sizes: (
-    default: rem-calc(17)
+    default: rem-calc(16)
 ) !global;
 
 $button-palette: $foundation-palette;
@@ -46,6 +47,19 @@ $header-styles: (
 ) !global;
 
 @include foundation-typography-base;
+
+.text {
+    &--lead {
+        @include letter-spacing(25);
+        font-size: rem-calc(18);
+        font-weight: 300;
+        line-height: calc(30/24);
+
+        @include breakpoint(lg) {
+            font-size: rem-calc(24);
+        }
+    }
+}
 
 body {
     font-size: rem-calc(16);
