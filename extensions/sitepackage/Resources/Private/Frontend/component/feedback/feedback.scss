@@ -1,0 +1,62 @@
+@charset "utf-8";
+/**
+ * feedback.scss
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-02-03
+ */
+$self: '.feedback';
+
+#{$self} {
+    &__text {
+        @extend blockquote;
+        background: {
+            image: linear-gradient(90deg, color('grey-300') 33%, rgba(white, 0) 0%);
+            position: bottom;
+            size: 4px 2px;
+            repeat: repeat-x;
+        };
+    }
+
+    &__cite {
+        @extend cite;
+    }
+
+    &__pages {
+        display: flex;
+        justify-content: flex-end;
+        margin: rem-calc(30 0 0);
+
+        li {
+            display: block;
+            flex: 0 0 atuo;
+            margin-left: rem-calc(5);
+            padding: 0;
+            width: auto;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+
+    &__page {
+        border-radius: 50%;
+        border: 1px solid color('moss');
+        color: color('moss');
+        cursor: pointer;
+        display: block;
+        font-size: rem-calc(14);
+        height: rem-calc(25);
+        padding-bottom: rem-calc(3);
+        width: rem-calc(25);
+
+        &:hover,
+        &:focus,
+        &--active {
+            background-color: color('moss');
+            color: color('white');
+        }
+    }
+}

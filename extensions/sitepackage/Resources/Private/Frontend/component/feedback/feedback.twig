@@ -1,0 +1,44 @@
+<!--
+ * feedback.twig
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-02-03
+-->
+{% set feedback = [
+    {
+        text: 'Lorem ipsum dolor, <br>sit amet consectetur adipisicing elit. Dicta sapiente ipsam provident, soluta eaque animi tenetur quibusdam magni dolor debitis natus accusamus, obcaecati impedit eveniet quas hic. A, asperiores cupiditate.',
+        cite: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+        text: 'Aliquam totam earum quos, <br>consectetur corporis eos adipisci corrupti consequuntur aliquid. In praesentium cumque distinctio minima quam nesciunt facere molestias. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, eligendi.',
+        cite: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+        text: 'Earum accusantium <br>dolorem consequuntur eius, repudiandae numquam! Ullam nemo facere velit officia esse exercitationem numquam reprehenderit? Perferendis id consequuntur esse veniam ea magnam distinctio, quasi blanditiis labore earum?',
+        cite: 'Lorem ipsum dolor sit amet.'
+    }
+] %}
+<div class="feedback">
+    <div class="feedback__row align-center row">
+        {% for item in feedback %}
+        <div class="feedback__item lg-8 md-10 xs-12 column">
+            <div class="feedback__text">
+                {{ item.text }}
+                <div class="feedback__cite">
+                    {{ item.cite }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="align-center row">
+        <ul class="feedback__pages lg-8 md-10 xs-12 column">
+            {% for i in 1..11 %}
+                <li>
+                    <button class="feedback__page {{ i == 1 ? 'feedback__page--active' }}">{{ i }}</button>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+</div>
