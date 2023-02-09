@@ -1,0 +1,42 @@
+<!--
+ * ce-center.twig
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-02-05
+-->
+{% extends "../../frame/frame.twig" %}
+
+{% block header %}
+<header class="frame__header">
+    <h2 class="h2">
+        Lorem ipsum dolor sit amet.
+        <div class="ce-subheader--below ce-subheader">
+            Lorem ipsum dolor sit amet.
+        </div>
+    </h2>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="ce-textpic ce-center ce-above">
+    <div class="ce-gallery" data-ce-columns="1" data-ce-images="1">
+        <div class="ce-row">
+            <div class="ce-column">
+                <figure class="image">
+                    <div class="image-embed">
+                        <img src="https://via.placeholder.com/1200x400" alt="" class="image-embed-item">
+                    </div>
+                    <figcaption class="image-caption">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dolor molestiae repudiandae sapiente sit, unde ut voluptas voluptate voluptatum. Architecto at culpa dolore dolorem esse fuga illo illum pariatur quis.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="ce-bodytext">
+        <p class="text--lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, architecto aut, dolorum eveniet ex fugiat obcaecati odit praesentium quae quisquam sint tempora, temporibus. A accusantium aliquid laboriosam neque perspiciatis?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores autem cum, deserunt dignissimos earum et exercitationem facilis iste laborum, mollitia nihil omnis placeat, porro quibusdam quod sunt tempore temporibus!</p>
+    </div>
+</div>
+{% endblock %}

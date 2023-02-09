@@ -1,0 +1,93 @@
+@charset "utf-8";
+/**
+ * frame.scss
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-02-05
+ */
+$self: '.frame';
+
+#{$self} {
+    position: relative;
+
+    &-space {
+        &--before {
+            &-none {
+                padding-top: 0;
+                // prevent collapsing top margin
+                border-top: 1px solid transparent;
+                margin-top: -1px;
+            }
+
+            &-fourth {
+                padding-top: rem-calc(30);
+            }
+
+            &-half {
+                padding-top: rem-calc(30);
+
+                @include breakpoint(lg) {
+                    padding-top: rem-calc(60);
+                }
+            }
+
+            &-full {
+                padding-top: rem-calc(60);
+
+                @include breakpoint(lg) {
+                    padding-top: rem-calc(120);
+                }
+            }
+        }
+
+        &--after {
+            &-full {
+                padding-bottom: rem-calc(60);
+
+                @include breakpoint(lg) {
+                    padding-bottom: rem-calc(120);
+                }
+            }
+
+            &-half {
+                padding-bottom: rem-calc(30);
+
+                @include breakpoint(lg) {
+                    padding-bottom: rem-calc(60);
+                }
+            }
+
+            &-fourth {
+                padding-bottom: rem-calc(30);
+            }
+
+            &-none {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    &__header {
+        @include grid-column-gutter();
+
+        margin: auto;
+        max-width: 100%;
+        width: $grid-row-width;
+
+        @include breakpoint(md) {
+            width: $grid-row-width * unitless-calc(grid-column(10));
+        }
+
+        @include breakpoint(lg) {
+            width: $grid-row-width * unitless-calc(grid-column(8));
+        }
+
+        .ce-above &,
+        .ce-below &,
+        .ce-intext & {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+@charset "utf-8";
+/**
+ * ce.scss
+ *
+ * @package TILDA
+ * @version 0.1.0
+ * Date: 2023-02-05
+ */
+$self: '.ce';
+
+#{$self} {
+    &-text,
+    &-textpic {
+        @include flex-grid-row();
+        @include flex-align(center);
+
+        margin-bottom: rem-calc(-30) - $paragraph-margin-bottom;
+    }
+
+    &-bodytext {
+        @include flex-grid-column(12);
+
+        align-self: center;
+        margin-bottom: rem-calc(30);
+        position: relative;
+
+        #{$self}-intext #{$self}-gallery + & {
+            @include breakpoint(md) {
+                @include flex-grid-size(7);
+            }
+
+            @include breakpoint(lg) {
+                @include flex-grid-size(4);
+            }
+        }
+
+        #{$self}-center & {
+            @include breakpoint(lg) {
+                @include flex-grid-size(8);
+            }
+        }
+
+        #{$self}-right & {
+            order: -1;
+        }
+
+        #{$self}-below & {
+            order: -1;
+        }
+    }
+
+    &-row {
+        @include flex-grid-row(nest);
+
+        @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+            $padding: rem-calc(calc($-zf-bp-value / 2)) - rem-calc(5);
+
+            padding-right: $padding;
+            padding-left: $padding;
+        }
+
+        & + & {
+            margin-top: $paragraph-margin-bottom;
+        }
+
+        #{$self}-above [data-ce-columns] &,
+        #{$self}-below [data-ce-columns] & {
+            margin-bottom: $paragraph-margin-bottom * -1;
+        }
+    }
+
+    &-column {
+        @include flex-grid-column(12, 10);
+
+        [data-ce-columns] & {
+            margin-bottom: $paragraph-margin-bottom;
+
+            &:last-child:not(:first-child) {
+                margin-bottom: 0;
+            }
+
+            @include breakpoint(md) {
+                @include flex-grid-size(null);
+
+                min-width: grid-column(6);
+            }
+
+            @include breakpoint(md) {
+                min-width: grid-column(3);
+            }
+        }
+    }
+
+    &-gallery {
+        @include flex-grid-column(12);
+
+        margin-bottom: rem-calc(30);
+
+        #{$self}-intext & {
+            @include breakpoint(md) {
+                @include flex-grid-size(4);
+            }
+        }
+
+        img {
+            margin: 0;
+        }
+
+        &.ce-border img {
+            border: 1px solid color('grey-300');
+        }
+    }
+
+    &-subheader {
+        @include letter-spacing(140);
+
+        color: color('grey-700');
+        display: block;
+        font-family: $hero-font-family;
+        font-size: rem-calc(17);
+        font-weight: normal;
+        line-height: rem-calc(22);
+        margin-top: rem-calc(4);
+
+        &--above {
+            margin: 0 0 rem-calc(2);
+        }
+    }
+
+    &-table {
+        overflow-x: auto;
+    }
+}
