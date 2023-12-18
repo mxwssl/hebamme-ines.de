@@ -24,18 +24,6 @@
  */
 @import 'foundation';
 
-// Global styles
-@include foundation-global-styles;
-@include foundation-forms;
-@include foundation-typography;
-
-// Grids
-@include foundation-flex-grid;
-
-// Helpers
-@include foundation-flex-classes;
-@include foundation-visibility-classes;
-
 /**
  * partials
  */
@@ -59,4 +47,5 @@
 @import '../component/feedback/feedback';
 @import '../component/frame/frame';
 @import '../component/ce/ce';
+
 // @newComponent

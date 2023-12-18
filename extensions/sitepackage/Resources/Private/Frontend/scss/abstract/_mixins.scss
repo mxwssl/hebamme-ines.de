@@ -7,5 +7,5 @@
  */
 
 @mixin letter-spacing($value) {
-    letter-spacing: unquote(calc($value/1000) + 'em');
+    letter-spacing: calc($value / 1000) + 'em';
 }

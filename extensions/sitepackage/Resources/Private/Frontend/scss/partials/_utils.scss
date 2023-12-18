@@ -5,3 +5,15 @@
  * @package TILDA
  * @version 0.0.1
  */
+
+// Global styles
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+
+// Grids
+@include foundation-flex-grid;
+
+// Helpers
+@include foundation-flex-classes;
+@include foundation-visibility-classes;

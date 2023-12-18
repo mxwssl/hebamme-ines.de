@@ -13,12 +13,13 @@
     @if null == map-get($colors, $color) {
         @warn 'color(): "#{$color}" is not defined. Available colors are: #{map-keys($colors)}';
     }
+
     @return map-get($colors, $color);
 }
 
 /**
  * Return encoded string
  */
- @function base64($color) {
+@function base64($color) {
     @return '%23' + str-slice(#{color($color)}, 2);
 }

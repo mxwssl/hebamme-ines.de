@@ -5,6 +5,7 @@
  * @package TILDA
  * @version 0.0.1
  */
+@use 'sass:map';
 
 /**
  * Colors
@@ -41,14 +42,17 @@ $grid-column-gutter: (
     xs: 40
 ) !default;
 
-$breakpoint-classes: map-keys($points) !default;
+$breakpoint-classes: map.keys($points) !default;
 
-// merge default breakpoints
-$breakpoints: map-merge($points, (
-    small: map-get($points, xs),
-    medium: map-get($points, md),
-    large: map-get($points, lg),
-)) !default;
+/* Merge breakpoints */
+$breakpoints: map.merge(
+    $points,
+    (
+        small: map.get($points, xs),
+        medium: map.get($points, md),
+        large: map.get($points, lg),
+    )
+) !default;
 
 $grid-column-alias: false !default;
 $-zf-zero-breakpoint: xs !default;
@@ -58,6 +62,7 @@ $-zf-zero-breakpoint: xs !default;
  */
 $body-font-color: color('grey-700') !default;
 
+/* stylelint-disable-next-line value-keyword-case */
 $body-font-family: Muli, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
 $hero-font-family: FiraSans, #{$body-font-family};
 

@@ -42,7 +42,6 @@
     "stylelint": "^16.0.2",
     "stylelint-config-standard-scss": "^12.0.0",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.0.0",
     "webpack": "^5.89.0",
     "webpack-stream": "^7.0.0"
   },
