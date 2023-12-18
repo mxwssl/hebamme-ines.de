@@ -1,12 +1,40 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "customSyntax": "postcss-scss",
   "ignoreFiles": [
     "**/*.{html,twig,js}"
   ],
+  "plugins": [
+    "stylelint-scss",
+		"stylelint-order"
+	],
   "rules": {
     "at-rule-no-unknown": null,
     "comment-empty-line-before": null,
     "indentation": 4,
-    "number-leading-zero": "never"
-  }
+    "number-leading-zero": "never",
+    "order/properties-alphabetical-order": true,
+    "string-quotes": "single",
+    "declaration-empty-line-before": "never",
+    "selector-list-comma-newline-after": "never-multi-line",
+    "scss/dollar-variable-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "after-comment"
+        ],
+        "ignore": [
+          "after-dollar-variable"
+        ]
+      }
+    ]
+  },
+  "value-keyword-case": [
+    "lower",
+    {
+      "ignoreProperties": ["/^\\$/"]
+    }
+  ]
 }

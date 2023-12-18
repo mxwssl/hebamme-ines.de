@@ -4,10 +4,7 @@
     "es6": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "standardx"
-  ],
+  "extends": ["eslint:recommended", "standard", "prettier"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -17,22 +14,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "indent": [
-      "error",
-      4
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
+    "linebreak-style": ["error", "unix"],
     "sort-imports": "warn"
   }
 }
