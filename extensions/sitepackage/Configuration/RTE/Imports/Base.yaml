@@ -1,0 +1,20 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    config:
+        autoParagraph: false
+        fillEmptyBlocks: false
+
+        format_tags: "p;h2;h3;h4;h5"
+
+        removeButtons:
+            - Image
+            - Strike
+            - Anchor
+            - Outdent
+            - Indent
+            - JustifyBlock

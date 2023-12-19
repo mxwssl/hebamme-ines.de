@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" product-name="sitepackage">
+        <header>
+            <description>Language Labels for EXT:sitepackage</description>
+        </header>
+        <body>
+
+            <trans-unit id="pluginWizard.header.custom">
+                <source>Custom Elements</source>
+            </trans-unit>
+
+            <trans-unit id="backendLayout.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="backendLayout.colPos.0">
+                <source>Content</source>
+            </trans-unit>
+
+            <trans-unit id="rte.classes.button">
+                <source>Button</source>
+            </trans-unit>
+            <trans-unit id="rte.classes.button.light">
+                <source>Button (Light)</source>
+            </trans-unit>
+            <trans-unit id="rte.classes.link">
+                <source>Default Link</source>
+            </trans-unit>
+            <trans-unit id="rte.classes.link.download">
+                <source>Download Link</source>
+            </trans-unit>
+            <trans-unit id="rte.classes.link.external">
+                <source>External Link</source>
+            </trans-unit>
+            <trans-unit id="rte.classes.link.email">
+                <source>E-Mail Link</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.custom">
+                <source>Custom Elements</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.header_class">
+                <source>CSS-Class</source>
+            </trans-unit>
+            <trans-unit id="tt_content.header_position">
+                <source>Header Position</source>
+            </trans-unit>
+            <trans-unit id="tt_content.subheader_position">
+                <source>Subheader Position</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

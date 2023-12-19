@@ -1,0 +1,19 @@
+lib.page.class = COA
+lib.page.class {
+    10 = TEXT
+    10 {
+        field = alias // uid
+        noTrimWrap = |page-||
+    }
+    20 = TEXT
+    20 {
+        data = level:1
+        noTrimWrap = | level-||
+    }
+    30 = TEXT
+    30 {
+        field = layout
+        noTrimWrap = | layout-||
+        ifEmpty = default
+    }
+}

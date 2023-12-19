@@ -1,0 +1,21 @@
+@import 'EXT:sitepackage/Configuration/TsConfig/main.tsconfig'
+@import 'EXT:sitepackage/Configuration/TsConfig/TCEFORM.tsconfig'
+
+RTE {
+    RteDefault {
+        preset = RteDefault
+    }
+    RteMinimal {
+        preset = RteMinimal
+    }
+}
+
+TCEMAIN {
+    linkHandler.folder >
+    translateToMessage >
+
+    table {
+        pages.disablePrependAtCopy = 1
+        tt_content.disablePrependAtCopy = 1
+    }
+}

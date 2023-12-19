@@ -1,0 +1,22 @@
+lib.pageBodyTag = COA
+lib.pageBodyTag {
+    10 = TEXT
+    10 {
+        data = TSFE:id
+        noTrimWrap = | id="page-|"|
+    }
+
+    20 = COA
+    20 {
+        10 = TEXT
+        10 {
+            data = page:layout
+            wrap = layout-|
+            ifEmpty = default
+        }
+
+        stdWrap.noTrimWrap = | class="|"|
+    }
+
+    wrap = <body|>
+}

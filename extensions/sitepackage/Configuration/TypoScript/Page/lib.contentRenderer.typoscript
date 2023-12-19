@@ -1,0 +1,11 @@
+lib.contentRenderer = CONTENT
+lib.contentRenderer {
+    table = tt_content
+    select {
+        orderBy = sorting
+        where = colPos = {field:colPos}
+        where.insertData = 1
+        max.field = max
+    }
+    slide.field = slide
+}

@@ -1,0 +1,52 @@
+#Button config and defaults
+classes:
+    button:
+        name: "LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:rte.classes.button"
+    button button--light:
+        name: "LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:rte.classes.button.light"
+    link:
+        name: "LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:rte.classes.link"
+    link link--download:
+        name: "LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:rte.classes.link.download"
+    link link--external:
+        name: "LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:rte.classes.link.external"
+    link link--email:
+        name: "LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:rte.classes.link.email"
+
+buttons:
+    link:
+        properties:
+            class:
+                allowedClasses: "link, link link--download, link link--external, link link--email, button, button button--light"
+        page:
+            properties:
+                class:
+                    default: "link"
+        file:
+            properties:
+                class:
+                    default: "link link--download"
+        url:
+            properties:
+                class:
+                    default: "link link--external"
+        mail:
+            properties:
+                class:
+                    default: "link link--email"
+
+#Classes config
+classesAnchor:
+    linkInternal:
+        class: "link"
+        type: "page"
+    linkDownload:
+        class: "link link--download"
+        type: "file"
+    linkExternal:
+        class: "link link--external"
+        target: "_blank"
+        type: "url"
+    linkMail:
+        class: "link link--email"
+        type: "mail"

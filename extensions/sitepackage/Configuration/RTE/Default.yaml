@@ -1,0 +1,21 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:sitepackage/Configuration/RTE/Imports/Base.yaml" }
+    - { resource: "EXT:sitepackage/Configuration/RTE/Imports/Button.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+    config:
+        # contentsCss: "EXT:sitepackage/Resources/Public/Css/editor.css"
+        # stylesSet:
+
+        toolbarGroups:
+            - { name: styles, groups: [format] }
+            - { name: basicstyles, groups: [basicstyles] }
+            - { name: paragraph, groups: [list, blocks] }
+            - { name: links, groups: [links] }
+            - { name: clipboard, groups: [clipboard, cleanup, undo] }
+            - { name: insert, groups: [insert] }
+            - { name: tools, groups: [specialchar] }
+            - { name: document, groups: [mode] }

@@ -1,0 +1,15 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:sitepackage/Configuration/RTE/Imports/Base.yaml" }
+    - { resource: "EXT:sitepackage/Configuration/RTE/Imports/Button.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+    config:
+        height: 150
+
+        toolbarGroups:
+            - { name: basicstyles, groups: [basicstyles] }
+            - { name: links, groups: [links] }
+            - { name: clipboard, groups: [clipboard, undo] }

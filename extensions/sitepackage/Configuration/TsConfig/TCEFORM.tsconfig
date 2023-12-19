@@ -1,0 +1,140 @@
+TCAdefaults {
+    tt_content {
+        header_layout = 2
+        space_after_class = full
+    }
+}
+
+TCEFORM {
+    pages {
+        abstract.disabled = 1
+        author_email.disabled = 1
+        author.disabled = 1
+        backend_layout_next_level.disabled = 1
+        cache_timeout.disabled = 1
+        categories.disabled = 1
+        content_from_pid.disabled = 1
+        doktype.removeItems = 6,7,255
+        endtime.disabled = 1
+        extendToSubpages.disabled = 1
+        fe_login_mode.disabled = 1
+        l18n_cfg.disabled = 1
+        lastUpdated.disabled = 1
+        layout.disabled = 1
+        module.disabled = 1
+        newUntil.disabled = 1
+        php_tree_stop.disabled = 1
+        rowDescription.disabled = 1
+        starttime.disabled = 1
+        subtitle.disabled = 1
+
+        backend_layout {
+            altLabels.. = Default
+            removeItems = -1
+        }
+    }
+
+    tt_content {
+        categories.disabled = 1
+        date.disabled = 1
+        fe_group.disabled = 1
+        header_link.disabled = 1
+        image_zoom.disabled = 1
+        imageborder.disabled = 1
+        imagecols.disabled = 1
+        imageheight.disabled = 1
+        imagewidth.disabled = 1
+        linkToTop.disabled = 1
+        sectionIndex.disabled = 1
+
+        CType {
+            removeItems = header, textpic, image, bullets, table, menu_abstract, menu_categorized_content, menu_categorized_pages, menu_recently_updated, menu_related_pages, menu_section, menu_section_pages, menu_sitemap, menu_sitemap_pages
+        }
+
+        header_layout {
+            altLabels {
+                1 = h1
+                2 = h2
+                3 = h3
+                4 = h4
+                5 = h5
+            }
+            removeItems = 0,6
+
+            types {
+                list.removeItems = 0,1,2,3,4,5
+            }
+        }
+
+        header_class {
+            addItems {
+                0 = Default
+                1 = h1-Style
+                2 = h2-Style
+                3 = h3-Style
+                4 = h4-Style
+                5 = h5-Style
+            }
+
+            types {
+                list.disabled = 1
+            }
+        }
+
+        header_position {
+            removeItems = center, right, left
+            addItems {
+                inside = Inside
+            }
+
+            types {
+                list.disabled = 1
+            }
+        }
+
+        subheader {
+
+        }
+
+        subheader_position {
+            addItems {
+                0 = After Header
+                1 = Before Header
+            }
+
+            types {
+                list.disabled = 1
+            }
+        }
+
+        imageorient.removeItems = 1,2,9,10,17,18
+
+        layout {
+            removeItems = 1,2,3
+        }
+
+        frame_class {
+            removeItems = ruler-before, ruler-after, indent, indent-left, indent-right
+            addItems {
+            }
+        }
+
+        space_before_class {
+            removeItems = extra-small, small, medium, large, extra-large
+            altLabels.. = None
+            addItems {
+                half = Half
+                full = Full
+            }
+        }
+
+        space_after_class {
+            removeItems = extra-small, small, medium, large, extra-large
+            altLabels.. = None
+            addItems {
+                half = Half
+                full = Full
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
+
+# sitepackage
+plugin.tx_sitepackage {
+    layoutRootPaths = EXT:sitepackage/Resources/Private/Layouts
+    partialRootPaths = EXT:sitepackage/Resources/Private/Partials
+    templateRootPaths = EXT:sitepackage/Resources/Private/Templates
+}
+
+# fluid_styled_content
+styles.templates {
+  templateRootPath = {$plugin.tx_sitepackage.templateRootPaths}/Content
+  layoutRootPath = {$plugin.tx_sitepackage.layoutRootPaths}/Content
+  partialRootPath = {$plugin.tx_sitepackage.partialRootPaths}/Content
+}

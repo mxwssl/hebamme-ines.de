@@ -1,0 +1,19 @@
+lib.parseFunc_RTE {
+    // https://gist.github.com/noelboss/7655934
+    short.nbsp = #32
+
+    externalBlocks {
+        table {
+            stripNL = 1
+            stdWrap {
+                wrap = <div class="contenttable__wrap">|</div>
+                HTMLparser {
+                    tags.table.fixAttrib.class {
+                        default = contenttable
+                        list = contenttable
+                    }
+                }
+            }
+        }
+    }
+}

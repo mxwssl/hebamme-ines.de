@@ -1,0 +1,8 @@
+mod {
+    wizards.newContentElement.wizardItems {
+        custom {
+            header = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:pluginWizard.header.custom
+            before = common
+        }
+    }
+}

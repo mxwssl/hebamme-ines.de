@@ -1,0 +1,48 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+
+@import 'EXT:sitepackage/Configuration/TypoScript/**/*.typoscript'
+
+page = PAGE
+page {
+    typeNum = 0
+
+    bodyTagCObject =< lib.pageBodyTag
+
+    meta {
+        viewport = width=device-width,initial-scale=1.0
+        robots = index,follow
+    }
+
+    includeCSS {
+        10 = EXT:sitepackage/Resources/Public/Css/screen.css
+        10.media = screen
+    }
+
+    headerData {
+        10 = FLUIDTEMPLATE
+        10 {
+            templateName = Default
+            templateRootPaths.0 = {$plugin.tx_sitepackage.templateRootPaths}/Meta
+            partialRootPaths.0 = {$plugin.tx_sitepackage.partialRootPaths}/Meta
+
+            variables {
+                pagelayout < lib.pageLayout
+            }
+        }
+    }
+
+    includeJSFooter {
+        10 = EXT:sitepackage/Resources/Public/Js/script.js
+        10.async = true
+    }
+
+    10 = FLUIDTEMPLATE
+    10 {
+        templateRootPaths.10 = {$plugin.tx_sitepackage.templateRootPaths}/Page
+        layoutRootPaths.10 = {$plugin.tx_sitepackage.layoutRootPaths}/Page
+        partialRootPaths.10 = {$plugin.tx_sitepackage.partialRootPaths}/Page
+
+        templateName < lib.pageLayout
+        templateName.ifEmpty = Default
+    }
+}
