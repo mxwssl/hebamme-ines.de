@@ -1,9 +1,9 @@
 /* eslint-disable sort-imports */
 /* eslint-disable no-unused-vars */
-import { Tilda } from './tilda'
+import { Tilda } from './tilda.js';
 
-import '../component/header/header'
-import '../component/navmain/navmain'
-import '../component/trigger/trigger'
-import '../component/feedback/feedback'
+import '../component/header/header.js';
+import '../component/navmain/navmain.js';
+import '../component/trigger/trigger.js';
+import '../component/feedback/feedback.js';
 // @newComponent

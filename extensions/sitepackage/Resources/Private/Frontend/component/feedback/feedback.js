@@ -5,7 +5,7 @@
  * @version 0.1.0
  * Date: 2023-02-03
  */
-import { $, Tilda } from '../../js/tilda'
+import { $, Tilda } from '../../js/tilda.js';
 
 Tilda.Component.Feedback = (() => {
     const self = {
@@ -13,15 +13,13 @@ Tilda.Component.Feedback = (() => {
         selectors: {},
         classes: {},
         elements: {}
-    }
+    };
     // eslint-disable-next-line no-unused-vars
-    const _ = {}
+    const _ = {};
 
-    self.init = () => {
+    self.init = () => {};
 
-    }
+    return self;
+})();
 
-    return self
-})()
-
-Tilda.Component.Feedback.init()
+Tilda.Component.Feedback.init();

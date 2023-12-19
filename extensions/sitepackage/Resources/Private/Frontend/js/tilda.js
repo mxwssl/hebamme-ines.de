@@ -6,9 +6,7 @@ const Tilda = {
         docRoot: document.scrollingElement || document.documentElement
     },
     Function: {
-        getOffset: function () {
-            return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-        }
+        getOffset: () => window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
     },
     Variable: {}
 }
