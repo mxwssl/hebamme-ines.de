@@ -1,55 +1,60 @@
 /**
  * packages
  */
-import { dest, series, src, watch } from 'gulp'
-import compiler from 'webpack'
-import plumber from 'gulp-plumber'
-import replace from 'gulp-replace'
-import webpack from 'webpack-stream'
+import compiler from 'webpack';
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import replace from 'gulp-replace';
+import webpack from 'webpack-stream';
 
 /**
  * imports
  */
 // eslint-disable-next-line sort-imports
-import { catchError, pathConf } from '../index'
-import { syncBrowser } from './browser'
+import { catchError, pathConf, syncBrowser } from 'tilda/utils';
 
 /**
  * functions
  */
+const { src, dest, watch, series } = gulp;
+
 const bundleScript = (done) => {
     return src(pathConf.script.src)
         .pipe(plumber(catchError))
-        .pipe(webpack({
-            mode: 'production',
-            output: {
-                filename: pathConf.script.filename
-            },
-            resolve: {
-                modules: pathConf.script.modules
-            }
-        }, compiler))
-        .pipe(dest(pathConf.script.dest))
-}
+        .pipe(
+            webpack(
+                {
+                    mode: 'production',
+                    output: {
+                        filename: pathConf.script.filename
+                    },
+                    resolve: {
+                        modules: pathConf.script.modules
+                    }
+                },
+                compiler
+            )
+        )
+        .pipe(dest(pathConf.script.dest));
+};
 
 const importScript = ({ name, script }, done) => {
-    const marker = '// @newComponent'
+    const marker = '// @newComponent';
 
-    if (script !== 'yes') return done()
+    if (script !== 'yes') return done();
 
     return src(pathConf.script.src)
-        .pipe(replace(
-            marker,
-            `import '../component/${name}/${name}'\n${marker}`
-        ))
-        .pipe(dest((file) => file.base))
-}
+        .pipe(
+            replace(
+                marker,
+                `import '../component/${name}/${name}.js'\n${marker}`
+            )
+        )
+        .pipe(dest((file) => file.base));
+};
 
 const watchScript = (done) => {
-    return watch(pathConf.script.watch,
-        {},
-        series(bundleScript, syncBrowser)
-    )
-}
+    return watch(pathConf.script.watch, {}, series(bundleScript, syncBrowser));
+};
 
-export { bundleScript, importScript, watchScript }
+export { bundleScript, importScript, watchScript };
