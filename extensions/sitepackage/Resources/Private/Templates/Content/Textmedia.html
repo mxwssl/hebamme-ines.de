@@ -4,7 +4,33 @@
 >
     <f:layout name="Default" />
 
+    <f:section name="Header">
+        <f:if condition="{data.header_position} != 'inside'">
+            <f:render partial="Header/All" arguments="{_all}" />
+        </f:if>
+    </f:section>
     <f:section name="Main">
-        <f:format.html>{data.bodytext}</f:format.html>
+        <div
+            class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}"
+        >
+            <f:if condition="{gallery.position.vertical} != 'below'">
+                <f:render partial="Media/Gallery" arguments="{_all}" />
+            </f:if>
+
+            <f:if condition="{data.bodytext} || {data.header}">
+                <div class="ce-bodytext">
+                    <f:if condition="{data.header_position} == 'inside'">
+                        <f:render partial="Header/All" arguments="{_all}" />
+                    </f:if>
+                    <f:if condition="{data.bodytext}">
+                        <f:format.html>{data.bodytext}</f:format.html>
+                    </f:if>
+                </div>
+            </f:if>
+
+            <f:if condition="{gallery.position.vertical} == 'below'">
+                <f:render partial="Media/Gallery" arguments="{_all}" />
+            </f:if>
+        </div>
     </f:section>
 </html>

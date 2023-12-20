@@ -23,8 +23,18 @@ plugin.tx_sitepackage {
 }
 
 # fluid_styled_content
-styles.templates {
-    templateRootPath = {$plugin.tx_sitepackage.templateRootPaths}/Content
-    layoutRootPath = {$plugin.tx_sitepackage.layoutRootPaths}/Content
-    partialRootPath = {$plugin.tx_sitepackage.partialRootPaths}/Content
+styles {
+    templates {
+        templateRootPath = {$plugin.tx_sitepackage.templateRootPaths}/Content
+        layoutRootPath = {$plugin.tx_sitepackage.layoutRootPaths}/Content
+        partialRootPath = {$plugin.tx_sitepackage.partialRootPaths}/Content
+    }
+
+    content {
+        textmedia {
+            linkWrap.width >
+            maxW = 1200
+            maxWInText = 1200
+        }
+    }
 }

@@ -1,0 +1,90 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:if condition="{header}">
+        <f:switch expression="{class}">
+            <f:case value="0">
+                <f:variable name="headerClass" value="" />
+            </f:case>
+            <f:case value="1">
+                <f:variable name="headerClass" value="h1" />
+            </f:case>
+            <f:case value="2">
+                <f:variable name="headerClass" value="h2" />
+            </f:case>
+            <f:case value="3">
+                <f:variable name="headerClass" value="h3" />
+            </f:case>
+            <f:case value="4">
+                <f:variable name="headerClass" value="h4" />
+            </f:case>
+            <f:case value="5">
+                <f:variable name="headerClass" value="h5" />
+            </f:case>
+        </f:switch>
+
+        <f:switch expression="{layout}">
+            <f:case value="1">
+                <h1 class="{positionClass}{headerClass}">
+                    <f:render section="headerContent" arguments="{_all}" />
+                </h1>
+            </f:case>
+            <f:case value="2">
+                <h2 class="{positionClass}{headerClass}">
+                    <f:render section="headerContent" arguments="{_all}" />
+                </h2>
+            </f:case>
+            <f:case value="3">
+                <h3 class="{positionClass}{headerClass}">
+                    <f:render section="headerContent" arguments="{_all}" />
+                </h3>
+            </f:case>
+            <f:case value="4">
+                <h4 class="{positionClass}{headerClass}">
+                    <f:render section="headerContent" arguments="{_all}" />
+                </h4>
+            </f:case>
+            <f:case value="5">
+                <h5 class="{positionClass}{headerClass}">
+                    <f:render section="headerContent" arguments="{_all}" />
+                </h5>
+            </f:case>
+            <f:case value="6">
+                <h6 class="{positionClass}{headerClass}">
+                    <f:render section="headerContent" arguments="{_all}" />
+                </h6>
+            </f:case>
+            <f:case value="100">
+                <f:comment> -- do not show header -- </f:comment>
+            </f:case>
+            <f:defaultCase>
+                <f:if condition="{default}">
+                    <f:render
+                        partial="Header/Header"
+                        arguments="{
+                    header: header,
+                    layout: default,
+                    class: class,
+                    subheader: subheader,
+                    subPosition: subPosition,
+                    positionClass: positionClass,
+                    link: link}"
+                    />
+                </f:if>
+            </f:defaultCase>
+        </f:switch>
+    </f:if>
+
+    <f:section name="headerContent">
+        <f:if condition="{subPosition}">
+            <f:render partial="Header/SubHeader" arguments="{_all}" />
+        </f:if>
+        <f:link.typolink parameter="{link}">
+            {header -> f:format.nl2br()}
+        </f:link.typolink>
+        <f:if condition="!{subPosition}">
+            <f:render partial="Header/SubHeader" arguments="{_all}" />
+        </f:if>
+    </f:section>
+</html>
