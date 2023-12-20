@@ -6,6 +6,9 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 (function ($llSP, $llFE, $llC) {
 
+    $GLOBALS['TCA']['tt_content']['ctrl']['previewRenderer'] =
+        Mxw\Sitepackage\Preview\CustomPreviewRenderer::class;
+
     foreach (['header', 'subheader'] as $field) {
         $GLOBALS['TCA']['tt_content']['columns'][$field]['config']['type'] = 'text';
         $GLOBALS['TCA']['tt_content']['columns'][$field]['config']['rows'] = 2;
