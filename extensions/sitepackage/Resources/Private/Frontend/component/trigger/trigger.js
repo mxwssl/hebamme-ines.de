@@ -7,9 +7,7 @@
  */
 import { $, Tilda } from '../../js/tilda.js';
 import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
-import { MediaQuery } from 'foundation-sites';
-
-if (!MediaQuery.current.length) MediaQuery._init();
+import { MediaQuery } from 'foundation-sites/js/entries/plugins/foundation.util.mediaQuery.js';
 
 Tilda.Component.Trigger = (() => {
     const self = {
@@ -26,13 +24,12 @@ Tilda.Component.Trigger = (() => {
             scroll: document.querySelector('.navmain')
         }
     };
-    // eslint-disable-next-line no-unused-vars
     const _ = {
-        queryMatch: MediaQuery.queries.filter(
-            (item, index) => item.name === self.settings.query
-        )[0],
+        queryMatch: MediaQuery.queries.find(
+            (item) => item.name === self.settings.query
+        ),
         get queryWatch() {
-            return window.matchMedia(this.queryMatch.value);
+            return window.matchMedia(this.queryMatch?.value);
         }
     };
 
@@ -43,17 +40,13 @@ Tilda.Component.Trigger = (() => {
             $(self.selectors.parent).attr('data-delay', true);
         }
 
-        if (typeof _.queryWatch.addEventListener === 'function') {
-            _.queryWatch.addEventListener('change', self.clearLocks);
-        } else {
-            _.queryWatch.addListener(self.clearLocks);
-        }
+        _.queryWatch.addEventListener('change', self.clearLocks);
     };
 
     self.triggerMenu = () => {
         self.elements.parent.toggle = !self.elements.parent.toggle;
         $(self.selectors.parent).attr(
-            'data-toggle',
+            'data-menu',
             self.elements.parent.toggle || null
         );
 
@@ -68,7 +61,7 @@ Tilda.Component.Trigger = (() => {
         if (_.queryWatch.matches) {
             self.elements.parent.toggle = false;
             $(self.selectors.parent).attr({
-                'data-toggle': null,
+                'data-menu': null,
                 'data-delay': true
             });
             clearAllBodyScrollLocks();
@@ -81,5 +74,3 @@ Tilda.Component.Trigger = (() => {
 
     return self;
 })();
-
-Tilda.Component.Trigger.init();

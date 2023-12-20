@@ -71,5 +71,3 @@ Tilda.Component.Header = (() => {
 
     return self;
 })();
-
-Tilda.Component.Header.init();

@@ -10,9 +10,9 @@ $self: '.trigger';
 
 #{$self} {
     display: table;
+    position: relative;
     text-align: right;
     vertical-align: middle;
-    position: relative;
     z-index: 10;
 
     &__button {
@@ -44,7 +44,7 @@ $self: '.trigger';
             };
         }
 
-        i, &:before, &:after {
+        i, &::before, &::after {
             background-color: color('grey-400');
             border-radius: 1px;
             display: inline-block;
@@ -62,7 +62,7 @@ $self: '.trigger';
             }
         }
 
-        &:before, &:after {
+        &::before, &::after {
             content: '';
             font-size: 1em;
             left: 0;
@@ -75,28 +75,28 @@ $self: '.trigger';
             }
         }
 
-        &:before {
+        &::before {
             top: 0;
-            transform-origin: center top;
             transform: translate3d(0, -50%, 0);
+            transform-origin: center top;
             transition: width 200ms, top 200ms 250ms ease, transform 200ms ease-in-out;
         }
 
-        &:after {
+        &::after {
             bottom: 0;
-            transform-origin: center bottom;
             transform: translate3d(0, 50%, 0);
+            transform-origin: center bottom;
             transition: width 200ms, bottom 200ms 250ms ease, transform 200ms ease-in-out;
         }
 
-        [data-toggle] & {
+        [data-menu] & {
             i {
                 opacity: 0;
                 transition: width 200ms, opacity 200ms ease;
                 width: rem-calc(15) !important;
             }
 
-            &:before {
+            &::before {
                 background-color: color('grey-400');
                 top: 50%;
                 transform: rotate(45deg) translate3d(0, -50%, 0);
@@ -104,7 +104,7 @@ $self: '.trigger';
                 width: 100% !important;
             }
 
-            &:after {
+            &::after {
                 background-color: color('grey-400');
                 bottom: 50%;
                 transform: rotate(-45deg) translate3d(0, 50%, 0);
@@ -117,13 +117,13 @@ $self: '.trigger';
     &__label {
         @include hide-for(lg);
         display: block;
-        line-height: 1;
         font-family: $hero-font-family;
+        line-height: 1;
         margin-right: rem-calc(5);
         padding-top: rem-calc(2);
         transition: opacity 200ms;
 
-        [data-toggle] & {
+        [data-menu] & {
             opacity: 0;
         }
     }
