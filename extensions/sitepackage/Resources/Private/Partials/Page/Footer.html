@@ -5,8 +5,8 @@
     <div class="footer">
         <div class="footer__row row">
             <div class="footer__col column">
-                <f:for each="{navMeta}" as="item">
-                    <ul class="footer__list--nav footer__list">
+                <ul class="footer__list--nav footer__list">
+                    <f:for each="{navMeta}" as="item">
                         <li>
                             <a
                                 href="{item.link}"
@@ -16,8 +16,8 @@
                                 {item.title}
                             </a>
                         </li>
-                    </ul>
-                </f:for>
+                    </f:for>
+                </ul>
             </div>
             <div class="footer__col column">
                 <ul class="footer__list--call footer__list">
