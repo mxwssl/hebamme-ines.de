@@ -1,6 +1,8 @@
 @import 'EXT:sitepackage/Configuration/TsConfig/main.tsconfig'
 @import 'EXT:sitepackage/Configuration/TsConfig/TCEFORM.tsconfig'
 
+@import 'EXT:sitepackage/Configuration/TsConfig/Content/**.tsconfig'
+
 RTE {
     RteDefault {
         preset = RteDefault

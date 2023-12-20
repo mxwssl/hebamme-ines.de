@@ -63,6 +63,7 @@ TCEFORM {
 
             types {
                 list.removeItems = 0,1,2,3,4,5
+                ce_stage.disabled = 1
             }
         }
 
@@ -78,6 +79,7 @@ TCEFORM {
 
             types {
                 list.disabled = 1
+                ce_stage.disabled = 1
             }
         }
 
@@ -89,11 +91,14 @@ TCEFORM {
 
             types {
                 list.disabled = 1
+                ce_stage.disabled = 1
             }
         }
 
         subheader {
-
+            types {
+                ce_stage.disabled = 1
+            }
         }
 
         subheader_position {
@@ -104,6 +109,7 @@ TCEFORM {
 
             types {
                 list.disabled = 1
+                ce_stage.disabled = 1
             }
         }
 

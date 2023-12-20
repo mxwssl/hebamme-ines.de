@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.custom {
+    elements {
+        ce_stage {
+            iconIdentifier = default-icon
+            title = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:tt_content.ce_stage
+            description = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:tt_content.ce_stage.description
+            tt_content_defValues {
+                CType = ce_stage
+            }
+        }
+    }
+    show := addToList(ce_stage)
+}

@@ -40,6 +40,19 @@
                 <source>Custom Elements</source>
             </trans-unit>
 
+            <trans-unit id="tt_content.ce_stage">
+                <source>Stage header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.ce_stage.description">
+                <source>Prominent header with optional caption</source>
+            </trans-unit>
+            <trans-unit id="tt_content.ce_stage.header.description">
+                <source>Use [br] for linebreak or [cite] … [/] for citation</source>
+            </trans-unit>
+            <trans-unit id="tt_content.ce_stage.bodytext.description">
+                <source>Separate list items with linebreaks</source>
+            </trans-unit>
+
             <trans-unit id="tt_content.header_class">
                 <source>CSS-Class</source>
             </trans-unit>

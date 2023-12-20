@@ -1,0 +1,27 @@
+tt_content.ce_stage =< lib.contentElement
+tt_content.ce_stage {
+    templateName = Stage
+
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\SplitProcessor
+        10 {
+            fieldName = bodytext
+            removeEmptyEntries = 1
+            as = bullets
+        }
+    }
+
+    stdWrap.replacement {
+        10 {
+            search = /\[cite](.*?)\[\/]/
+            replace = <cite>${1}</cite>
+            useRegExp = 1
+        }
+
+        20 {
+            search = /\[br]/
+            replace = <br class="show-for-lg">
+            useRegExp = 1
+        }
+    }
+}

@@ -2,6 +2,15 @@ lib.contentElement {
   templateName >
   templateName.ifEmpty.cObject = TEXT
   templateName.ifEmpty.cObject.field = CType
+
+  dataProcessing.101 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+  dataProcessing.101 {
+    if.isTrue.field = assets
+    references.fieldName = assets
+    references.table = tt_content
+    sorting = sorting_foreign
+    as = assets
+  }
 }
 
 tt_content.default =< lib.contentElement
