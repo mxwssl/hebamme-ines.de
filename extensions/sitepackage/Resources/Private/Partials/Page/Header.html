@@ -2,5 +2,31 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
-    <!-- ###PARTIAL_HEADER### -->
+    <div class="header">
+        <div class="header__row row align-middle">
+            <div class="header__col--noshrink header__col column hide-for-lg">
+                <f:link.page
+                    pageUid="1"
+                    class="header__logo"
+                    title="{settings.companyData.prefix} {settings.companyData.title}"
+                >
+                    {settings.companyData.prefix}
+                    <span>{settings.companyData.title}</span>
+                </f:link.page>
+            </div>
+            <div class="header__col column">
+                <f:render partial="Navigation" arguments="{_all}" />
+            </div>
+            <div class="header__col--shrink header__col column hide-for-lg">
+                <div class="trigger">
+                    <button class="trigger__button">
+                        <i class="trigger__icon">
+                            <i></i>
+                        </i>
+                        <span class="trigger__label"> Menü </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </html>

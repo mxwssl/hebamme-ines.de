@@ -1,0 +1,37 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <div class="navmain align-middle">
+        <ul class="navmain__list column">
+            <f:for each="{navMain}" as="item">
+                <li
+                    class="navmain__item {f:if(condition: item.hasSubpages, then: 'navmain__item--parent')}"
+                >
+                    <a
+                        href="{item.link}"
+                        class="navmain__link {f:if(condition: item.active, then: 'navmain__link--active')}"
+                        >{item.title}
+                    </a>
+                    <f:if condition="{item.hasSubpages}">
+                        <ul class="navmain__sub">
+                            <f:for each="{item.children}" as="subItem">
+                                <li class="navmain__item">
+                                    <a
+                                        href="{subItem.link}"
+                                        class="navmain__link--sub navmain__link {f:if(condition: subItem.active, then: 'navmain__link--active')}"
+                                        >{subItem.title}
+                                    </a>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+        <ul class="navmain__call column">
+            <li>{settings.companyData.mobile}</li>
+            <li>{settings.companyData.phone}</li>
+        </ul>
+    </div>
+</html>

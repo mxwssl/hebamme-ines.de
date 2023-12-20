@@ -2,8 +2,13 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
-    <!-- ###LAYOUT_PAGE### -->
-    <f:render partial="Header" />
-    <f:render section="Main" />
-    <f:render partial="Footer" />
+    <div class="site">
+        <f:render partial="Header" arguments="{_all}" />
+
+        <div class="site__content">
+            <f:render section="Main" />
+        </div>
+
+        <f:render partial="Footer" arguments="{_all}" />
+    </div>
 </html>

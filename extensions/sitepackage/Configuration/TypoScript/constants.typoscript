@@ -5,11 +5,26 @@ plugin.tx_sitepackage {
     layoutRootPaths = EXT:sitepackage/Resources/Private/Layouts
     partialRootPaths = EXT:sitepackage/Resources/Private/Partials
     templateRootPaths = EXT:sitepackage/Resources/Private/Templates
+
+    settings.companyData {
+        # cat=plugin.tx_sitepackage/companyData/a; type=string; label=Title
+        title = Ines Liske
+        # cat=plugin.tx_sitepackage/companyData/b; type=string; label=Prefix
+        prefix = Hebamme
+        # cat=plugin.tx_sitepackage/companyData/c; type=string; label=Phone
+        phone = 030 - 94380916
+        # cat=plugin.tx_sitepackage/companyData/d; type=string; label=Mobile
+        mobile = 0162 - 6177776
+        # cat=plugin.tx_sitepackage/companyData/e; type=string; label=E-Mail
+        email = kontakt@hebamme-ines.de
+        # cat=plugin.tx_sitepackage/companyData/f; type=string; label=Address
+        address = 13129 Berlin
+    }
 }
 
 # fluid_styled_content
 styles.templates {
-  templateRootPath = {$plugin.tx_sitepackage.templateRootPaths}/Content
-  layoutRootPath = {$plugin.tx_sitepackage.layoutRootPaths}/Content
-  partialRootPath = {$plugin.tx_sitepackage.partialRootPaths}/Content
+    templateRootPath = {$plugin.tx_sitepackage.templateRootPaths}/Content
+    layoutRootPath = {$plugin.tx_sitepackage.layoutRootPaths}/Content
+    partialRootPath = {$plugin.tx_sitepackage.partialRootPaths}/Content
 }

@@ -2,5 +2,37 @@
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
-    <!-- ###PARTIAL_FOOTER### -->
+    <div class="footer">
+        <div class="footer__row row">
+            <div class="footer__col column">
+                <f:for each="{navMeta}" as="item">
+                    <ul class="footer__list--nav footer__list">
+                        <li>
+                            <a
+                                href="{item.link}"
+                                class="footer__link {f:if(condition: item.active, then: 'footer__link--active')}"
+                                title="{item.title}"
+                            >
+                                {item.title}
+                            </a>
+                        </li>
+                    </ul>
+                </f:for>
+            </div>
+            <div class="footer__col column">
+                <ul class="footer__list--call footer__list">
+                    <li>
+                        <f:link.email
+                            class="footer__link"
+                            email="{settings.companyData.email}"
+                            title="E-Mail senden"
+                        >
+                            {settings.companyData.email}
+                        </f:link.email>
+                    </li>
+                    <li>{settings.companyData.address}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </html>

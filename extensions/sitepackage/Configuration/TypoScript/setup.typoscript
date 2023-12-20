@@ -2,6 +2,17 @@
 
 @import 'EXT:sitepackage/Configuration/TypoScript/**/*.typoscript'
 
+plugin.tx_sitepackage.settings {
+    companyData {
+        title = {$plugin.tx_sitepackage.settings.companyData.title}
+        prefix = {$plugin.tx_sitepackage.settings.companyData.prefix}
+        phone = {$plugin.tx_sitepackage.settings.companyData.phone}
+        mobile = {$plugin.tx_sitepackage.settings.companyData.mobile}
+        email = {$plugin.tx_sitepackage.settings.companyData.email}
+        address = {$plugin.tx_sitepackage.settings.companyData.address}
+    }
+}
+
 page = PAGE
 page {
     typeNum = 0
@@ -44,5 +55,25 @@ page {
 
         templateName < lib.pageLayout
         templateName.ifEmpty = Default
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+			10 {
+                levels = 2
+				as = navMain
+			}
+
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+			20 {
+                special = directory
+                special.value = 3
+                levels = 1
+				as = navMeta
+			}
+        }
+
+        settings {
+            companyData < plugin.tx_sitepackage.settings.companyData
+        }
     }
 }
