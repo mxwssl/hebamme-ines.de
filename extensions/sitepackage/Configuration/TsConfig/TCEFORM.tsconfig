@@ -27,6 +27,8 @@ TCEFORM {
         rowDescription.disabled = 1
         starttime.disabled = 1
         subtitle.disabled = 1
+        tsconfig_includes.disabled = 1
+        TSconfig.disabled = 1
 
         backend_layout {
             altLabels.. = Default
