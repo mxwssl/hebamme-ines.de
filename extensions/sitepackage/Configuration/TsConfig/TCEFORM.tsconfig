@@ -65,7 +65,7 @@ TCEFORM {
 
             types {
                 list.removeItems = 0,1,2,3,4,5
-                ce_stage.disabled = 1
+                ce_stage.removeItems = 1,2,3,4,5
             }
         }
 
