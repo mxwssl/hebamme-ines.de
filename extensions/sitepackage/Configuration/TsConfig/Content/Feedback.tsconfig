@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.custom {
+    elements {
+        ce_feedback {
+            iconIdentifier = default-icon
+            title = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:tt_content.ce_feedback
+            description = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:tt_content.ce_feedback.description
+            tt_content_defValues {
+                CType = ce_feedback
+            }
+        }
+    }
+    show := addToList(ce_feedback)
+}

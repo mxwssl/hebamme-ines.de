@@ -53,6 +53,26 @@
                 <source>Separate list items with linebreaks</source>
             </trans-unit>
 
+            <trans-unit id="tt_content.ce_feedback">
+                <source>Feedback list</source>
+            </trans-unit>
+            <trans-unit id="tt_content.ce_feedback.description">
+                <source>Feedback collection (formerly guestbook)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.ce_feedback.feedback_item">
+                <source>Feedback item</source>
+            </trans-unit>
+
+            <trans-unit id="tx_sitepackage_feedback_item">
+                <source>Feedback item</source>
+            </trans-unit>
+            <trans-unit id="tx_sitepackage_feedback_item.author">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="tx_sitepackage_feedback_item.location">
+                <source>Location</source>
+            </trans-unit>
+
             <trans-unit id="tt_content.header_class">
                 <source>CSS-Class</source>
             </trans-unit>

@@ -1,0 +1,19 @@
+tt_content.ce_feedback =< lib.contentElement
+tt_content.ce_feedback {
+    templateName = Feedback
+
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = tx_sitepackage_feedback_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy = date DESC
+            as = items
+        }
+    }
+}

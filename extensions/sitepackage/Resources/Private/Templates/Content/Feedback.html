@@ -1,0 +1,49 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:mxw="http://typo3.org/ns/Mxw/Sitepackage/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Header"></f:section>
+    <f:section name="Main">
+
+        <mxw:pagination.paginate
+            objects="{items}"
+            as="feedbacks"
+            itemsPerPage="10"
+        >
+            <div class="feedback">
+                <div class="feedback__row align-center row">
+                    <f:for each="{feedbacks.paginator.paginatedItems}" as="feedback">
+                        <div class="feedback__item lg-8 md-10 xs-12 column">
+                            <div class="feedback__text">
+                                <div class="feedback__date">
+                                    {feedback.data.date -> f:format.date(format: 'd.m.Y')}
+                                </div>
+                                {feedback.data.bodytext -> f:format.html()}
+                                <div class="feedback__cite">
+                                    {feedback.data.header}{f:if(condition: feedback.data.location, then: ', {feedback.data.location}')}
+                                </div>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+                <div class="align-center row">
+                    <ul class="feedback__pages lg-8 md-10 xs-12 column">
+                        <f:for each="{feedbacks.pagination.allPageNumbers}" as="page">
+                            <li>
+                                <a
+                                    href="{mxw:pagination.uri(arguments: '{currentPage: page}', name: name)}"
+                                    class="feedback__page {f:if(condition: '{page} == {feedbacks.paginator.currentPageNumber}', then: 'feedback__page--active')}"
+                                >
+                                    {page}
+                                </a>
+                            </li>
+                        </f:for>
+                    </div>
+                </div>
+            </div>
+        </mxw:pagination.paginate>
+    </f:section>
+</html>
