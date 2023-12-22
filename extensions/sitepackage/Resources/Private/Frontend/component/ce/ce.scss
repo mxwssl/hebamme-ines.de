@@ -11,15 +11,13 @@ $self: '.ce';
 #{$self} {
     &-text,
     &-textpic {
-        @include flex-grid-row();
+        @include flex-grid-row;
         @include flex-align(center);
-
         margin-bottom: rem-calc(-30) - $paragraph-margin-bottom;
     }
 
     &-bodytext {
         @include flex-grid-column(12);
-
         align-self: center;
         margin-bottom: rem-calc(30);
         position: relative;
@@ -54,9 +52,8 @@ $self: '.ce';
 
         @include -zf-breakpoint-value(auto, $grid-column-gutter) {
             $padding: rem-calc(calc($-zf-bp-value / 2)) - rem-calc(5);
-
-            padding-right: $padding;
             padding-left: $padding;
+            padding-right: $padding;
         }
 
         & + & {
@@ -81,7 +78,6 @@ $self: '.ce';
 
             @include breakpoint(md) {
                 @include flex-grid-size(null);
-
                 min-width: grid-column(6);
             }
 
@@ -93,12 +89,21 @@ $self: '.ce';
 
     &-gallery {
         @include flex-grid-column(12);
-
         margin-bottom: rem-calc(30);
 
         #{$self}-intext & {
             @include breakpoint(md) {
                 @include flex-grid-size(4);
+            }
+        }
+
+        .frame-pull-adjacent + .frame & {
+            margin-top: rem-calc(-60 - 45);
+            position: relative;
+            z-index: 2;
+
+            @include breakpoint(lg) {
+                margin-top: rem-calc(-120 - 45);
             }
         }
 
@@ -113,7 +118,6 @@ $self: '.ce';
 
     &-subheader {
         @include letter-spacing(140);
-
         color: color('grey-700');
         display: block;
         font-family: $hero-font-family;

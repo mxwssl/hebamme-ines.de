@@ -14,10 +14,10 @@ $self: '.frame';
     &-space {
         &--before {
             &-none {
-                padding-top: 0;
-                // prevent collapsing top margin
+                /* prevent collapsing top margin */
                 border-top: 1px solid transparent;
                 margin-top: -1px;
+                padding-top: 0;
             }
 
             &-fourth {
@@ -68,9 +68,16 @@ $self: '.frame';
         }
     }
 
-    &__header {
-        @include grid-column-gutter();
+    &-pull-adjacent {
+        padding-bottom: rem-calc(60);
 
+        @include breakpoint(lg) {
+            padding-bottom: rem-calc(120);
+        }
+    }
+
+    &__header {
+        @include grid-column-gutter;
         margin: auto;
         max-width: 100%;
         width: $grid-row-width;

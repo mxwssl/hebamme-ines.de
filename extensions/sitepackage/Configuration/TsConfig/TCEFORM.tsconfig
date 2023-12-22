@@ -123,7 +123,11 @@ TCEFORM {
 
         frame_class {
             removeItems = ruler-before, ruler-after, indent, indent-left, indent-right
-            addItems {
+
+            types {
+                ce_stage.addItems {
+                    pull-adjacent = Pull adjacent
+                }
             }
         }
 

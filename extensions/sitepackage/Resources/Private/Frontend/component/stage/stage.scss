@@ -6,6 +6,9 @@
  * @version 0.0.2
  * Date: 2022-12-23
  */
+@use 'sass:map';
+@use 'sass:math';
+
 $self: '.stage';
 
 #{$self} {
@@ -22,8 +25,8 @@ $self: '.stage';
 
     &__brand {
         background-color: color('white');
-        border-radius: 100%;
         border: 1px solid color('beryl');
+        border-radius: 100%;
         display: table;
         margin: auto;
         padding: rem-calc(30 72);
@@ -37,9 +40,9 @@ $self: '.stage';
 
     &__wrap {
         background-color: color('pearl');
-        margin: 0 auto 0;
+        margin: 0 auto;
         max-width: rem-calc(1440);
-        padding-bottom: calc(78/46) * 1em;
+        padding-bottom: calc(78 / 46) * 1em;
         position: relative;
         z-index: 1;
 
@@ -58,20 +61,19 @@ $self: '.stage';
     }
 
     &__row {
-        $position: percentage(calc(100/16/unitless-calc($global-width)));
-
+        $position: math.percentage(calc(100 / 16 / unitless-calc($global-width)));
         position: relative;
         z-index: 0;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             background-color: color('moss');
             content: '';
             position: absolute;
             width: rem-calc(2);
         }
 
-        &:before {
+        &::before {
             height: rem-calc(340);
             left: $position;
             top: 0;
@@ -83,18 +85,18 @@ $self: '.stage';
             }
         }
 
-        &:after {
+        &::after {
             height: rem-calc(225);
-            top: rem-calc(-105);
             right: $position;
+            top: rem-calc(-105);
             z-index: 10;
         }
     }
 
     &__col {
         &--shrink {
-            flex: 0 1 grid-column(2);
-            align-self: flex-end
+            align-self: flex-end;
+            flex: 0 1 grid-column(2)
         }
 
         &--figure {
@@ -105,19 +107,19 @@ $self: '.stage';
     &__service {
         margin: rem-calc(30 0);
         position: relative;
-        width: calc(300% + #{rem-calc(map-get($grid-column-gutter, 'xs')) * 2});
+        width: calc(300% + #{rem-calc(map.get($grid-column-gutter, 'xs')) * 2});
         z-index: 10;
 
         @include breakpoint(xs down) {
-            width: calc(350% + #{rem-calc(map-get($grid-column-gutter, 'xs')) * 2.5});
+            width: calc(350% + #{rem-calc(map.get($grid-column-gutter, 'xs')) * 2.5});
         }
 
         @include breakpoint(md) {
-            width: calc(200% + #{rem-calc(map-get($grid-column-gutter, 'xs')) * 1.5});
+            width: calc(200% + #{rem-calc(map.get($grid-column-gutter, 'xs')) * 1.5});
         }
 
         @include breakpoint(xl) {
-            width: calc(150% + #{rem-calc(map-get($grid-column-gutter, 'xs'))});
+            width: calc(150% + #{rem-calc(map.get($grid-column-gutter, 'xs'))});
         }
 
         li {
@@ -129,7 +131,7 @@ $self: '.stage';
             padding: rem-calc(10 12 12);
             text-transform: uppercase;
 
-            &:before {
+            &::before {
                 content: none;
             }
         }
@@ -144,29 +146,33 @@ $self: '.stage';
     &__quote {
         @include flex-grid-size(8);
         color: color('moss');
-        line-height: calc(64/46);
-        margin-top: calc(64/46) * 1em;
+        line-height: calc(64 / 46);
         padding-bottom: .5em;
         position: relative;
         text-align: center;
 
-        &:before,
-        &:after {
+        .frame-pull-adjacent & {
+            margin-bottom: calc(64 / 46) * .75em;
+            margin-top: calc(64 / 46) * .6em;
+        }
+
+        &::before,
+        &::after {
             background-image: none;
             content: '[…]\00A0';
             display: inline-block;
             font-size: .8em;
             height: auto;
+            opacity: .2;
+            vertical-align: baseline;
+            width: auto;
             margin: {
                 bottom: 0;
                 left: -1.4em;
             }
-            opacity: .2;
-            vertical-align: baseline;
-            width: auto;
         }
 
-        &:after {
+        &::after {
             margin: {
                 left: 0;
                 right: -1.4em;
