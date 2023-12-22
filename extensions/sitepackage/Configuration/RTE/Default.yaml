@@ -1,14 +1,19 @@
 # Load default processing options
 imports:
-    - { resource: "EXT:sitepackage/Configuration/RTE/Imports/Base.yaml" }
-    - { resource: "EXT:sitepackage/Configuration/RTE/Imports/Button.yaml" }
+    - { resource: 'EXT:sitepackage/Configuration/RTE/Imports/Base.yaml' }
+    - { resource: 'EXT:sitepackage/Configuration/RTE/Imports/Button.yaml' }
 
 # Add configuration for the editor
 # For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
 editor:
     config:
         # contentsCss: "EXT:sitepackage/Resources/Public/Css/editor.css"
-        # stylesSet:
+        stylesSet:
+            - {
+                  name: 'Text - Lead',
+                  element: 'p',
+                  attributes: { class: 'text--lead' }
+              }
 
         toolbarGroups:
             - { name: styles, groups: [format] }

@@ -63,6 +63,13 @@
                 <source>Feedback item</source>
             </trans-unit>
 
+            <trans-unit id="tt_content.ce_banner">
+                <source>Banner text</source>
+            </trans-unit>
+            <trans-unit id="tt_content.ce_banner.description">
+                <source>Highlighted text banner</source>
+            </trans-unit>
+
             <trans-unit id="tx_sitepackage_feedback_item">
                 <source>Feedback item</source>
             </trans-unit>

@@ -1,0 +1,18 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
+
+    <f:section name="Header"></f:section>
+    <f:section name="Main">
+        <div class="banner align-center row">
+            <div class="lg-8 md-10 xs-12 column">
+                <div class="banner__content">
+                    <h3 class="banner__header h2">{data.header}</h3>
+                    {data.bodytext -> f:format.html()}
+                </div>
+            </div>
+        </div>
+    </f:section>
+</html>

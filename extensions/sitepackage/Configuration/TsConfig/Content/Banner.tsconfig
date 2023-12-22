@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.custom {
+    elements {
+        ce_banner {
+            iconIdentifier = default-icon
+            title = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:tt_content.ce_banner
+            description = LLL:EXT:sitepackage/Resources/Private/Language/locallang.xlf:tt_content.ce_banner.description
+            tt_content_defValues {
+                CType = ce_banner
+            }
+        }
+    }
+    show := addToList(ce_banner)
+}

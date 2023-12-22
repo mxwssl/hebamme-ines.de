@@ -12,6 +12,10 @@ $self: '.banner';
     &__content {
         border: 3px solid color('moss');
         padding: rem-calc(36 30);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__header {
