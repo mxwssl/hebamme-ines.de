@@ -6,6 +6,8 @@
  * @version 0.1.0
  * Date: 2022-12-26
  */
+@use 'sass:math';
+
 $self: '.teaser';
 
 #{$self} {
@@ -18,26 +20,26 @@ $self: '.teaser';
     }
 
     &__item {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: inherit;
         display: block;
+        margin-bottom: $paragraph-margin-bottom;
         position: relative;
         text-decoration: none;
-        margin-bottom: $paragraph-margin-bottom;
 
         @include breakpoint(md down) {
             padding: rem-calc(100 0);
         }
 
-        &:before {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        &::before {
             content: '';
             display: block;
             width: 100%;
 
             @include breakpoint(lg) {
-                padding-bottom: percentage(calc(455/372));
+                padding-bottom: math.percentage(calc(455 / 372));
             }
         }
     }
@@ -55,8 +57,8 @@ $self: '.teaser';
         text-transform: uppercase;
         top: 50%;
         transform: translate3d(-50%, -50%, 0);
-        width: 74%;
         transition: margin 100ms, box-shadow 100ms;
+        width: 74%;
 
         #{$self}__item:hover &,
         #{$self}__item:focus & {
