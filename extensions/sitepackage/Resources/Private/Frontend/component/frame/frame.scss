@@ -6,6 +6,9 @@
  * @version 0.1.0
  * Date: 2023-02-05
  */
+@use 'sass:map';
+@use 'sass:list';
+
 $self: '.frame';
 
 #{$self} {
@@ -69,10 +72,44 @@ $self: '.frame';
     }
 
     &-pull-adjacent {
-        padding-bottom: rem-calc(60);
+        padding-bottom: 0 !important;
 
-        @include breakpoint(lg) {
-            padding-bottom: rem-calc(120);
+        + #{$self} {
+            padding-top: rem-calc(60);
+
+            @include breakpoint(lg) {
+                padding-top: rem-calc(120);
+            }
+        }
+    }
+
+    @each $motive in ('horse', 'pacifier', 'dices', 'wagon', 'teddy', 'bottle') {
+        &-layout-#{$motive} {
+            position: relative;
+
+            &::before {
+                background-image: url('../Img/#{$motive}.svg');
+                background-position: right;
+                background-repeat: no-repeat;
+                background-size: contain;
+                bottom: 100%;
+                content: '';
+                display: block;
+                height: rem-calc(200);
+                left: 0;
+                margin: auto;
+                max-width: 100%;
+                position: absolute;
+                right: 0;
+                width: $global-width;
+                z-index: 2;
+            }
+        }
+    }
+
+    @each $motive in ('teddy', 'bottle') {
+        &-layout-#{$motive}::before {
+            background-position: left;
         }
     }
 

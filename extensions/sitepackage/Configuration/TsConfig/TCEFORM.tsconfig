@@ -119,6 +119,15 @@ TCEFORM {
 
         layout {
             removeItems = 1,2,3
+
+            addItems {
+                bottle = Bottle
+                dices = Dices
+                horse = Horse
+                pacifier = Pacifier
+                teddy = Teddy
+                wagon = Wagon
+            }
         }
 
         frame_class {
