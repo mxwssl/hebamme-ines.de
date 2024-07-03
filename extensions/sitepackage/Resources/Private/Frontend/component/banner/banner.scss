@@ -10,8 +10,10 @@ $self: '.banner';
 
 #{$self} {
     &__content {
-        border: 3px solid color('moss');
-        padding: rem-calc(36 30);
+        border: 3px solid color('pearl');
+        border-radius: rem-calc(200);
+        padding: rem-calc(50 98 40);
+        text-align: center;
 
         p:last-child {
             margin-bottom: 0;

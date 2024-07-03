@@ -10,8 +10,9 @@ $self: '.button';
 
 #{$self} {
     @include letter-spacing(220);
-    @include button-base();
+    @include button-base;
     background-color: color('moss');
+    border-radius: 2em;
     color: color('white');
     cursor: pointer;
 
@@ -33,7 +34,7 @@ $self: '.button';
         text-decoration: none;
     }
 
-    &[href^=mailto] {
+    &[href^="mailto"] {
         max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;

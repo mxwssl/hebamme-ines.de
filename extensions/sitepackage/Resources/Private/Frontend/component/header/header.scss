@@ -18,12 +18,12 @@ $self: '.header';
 
     &--fixed,
     &--solid {
-        color: color('black');
         background-color: color('white');
+        color: color('black');
     }
 
     &--fixed {
-        box-shadow: 0 0 30px rgba(black, .15);
+        box-shadow: 0 0 30px rgb(0 0 0 / 15%);
     }
 
     &__row {
@@ -32,7 +32,7 @@ $self: '.header';
 
     &__col {
         &--shrink {
-            @include grid-column-gutter();
+            @include grid-column-gutter;
             flex: 0 1 auto;
         }
 
@@ -43,16 +43,16 @@ $self: '.header';
 
     &__brand {
         display: block;
+        line-height: calc(36 / 46);
+        margin-bottom: calc(-6 / 46) * 1em;
         font: {
             family: $hero-font-family;
             size: rem-calc(26.5);
         };
-        line-height: calc(36/46);
-        margin-bottom: calc(-6/46) * 1em;
 
         span {
             display: block;
-            font-size: calc(36/46) * 1em;
+            font-size: calc(36 / 46) * 1em;
             line-height: 1;
             margin-top: rem-calc(2);
         }

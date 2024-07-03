@@ -5,10 +5,19 @@
  * @package TILDA
  * @version 0.0.1
  */
+@use 'sass:map';
 
 :root {
     @each $name, $value in $colors {
         --tl-color-#{$name}: #{$value};
+    }
+
+    @each $name, $style in $header-styles {
+        @include breakpoint($name) {
+            @each $key, $value in $style {
+                --tl-font-size-#{$key}: #{rem-calc(map.get($value, 'font-size'))};
+            }
+        }
     }
 }
 

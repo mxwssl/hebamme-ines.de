@@ -47,6 +47,7 @@ $self: '.teaser';
     &__title {
         @include letter-spacing(180);
         background: color('moss');
+        border-radius: 2em;
         color: color('white');
         left: 50%;
         line-height: 1.33;

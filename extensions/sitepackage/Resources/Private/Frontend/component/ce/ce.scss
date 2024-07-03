@@ -97,7 +97,13 @@ $self: '.ce';
             }
         }
 
-        .frame-pull-adjacent + .frame & {
+        #{$self}-center & {
+            @include breakpoint(lg) {
+                @include flex-grid-size(8);
+            }
+        }
+
+        .frame-pull-adjacent + .frame #{$self}-intext & {
             margin-top: rem-calc(-60 - 45);
             position: relative;
             z-index: 2;
@@ -111,7 +117,7 @@ $self: '.ce';
             margin: 0;
         }
 
-        &.ce-border img {
+        &#{$self}-border img {
             border: 1px solid color('grey-300');
         }
     }

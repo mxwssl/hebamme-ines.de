@@ -51,12 +51,16 @@ $self: '.stage';
             content: '';
             display: block;
             left: 0;
-            padding-bottom: percentage(calc(236/1440));
+            padding-bottom: math.percentage(calc(236 / 1440));
             position: absolute;
             right: 0;
             top: 0;
             width: 100%;
             z-index: -1;
+
+            #{$self}--small & {
+                padding-bottom: math.percentage(calc(194 / 1440));
+            }
         }
     }
 
@@ -101,6 +105,10 @@ $self: '.stage';
 
         &--figure {
             @include flex-grid-size(10);
+
+            #{$self}--small & {
+                margin-bottom: calc(var(--tl-font-size-h1) * 1.5);
+            }
         }
     }
 
@@ -109,6 +117,10 @@ $self: '.stage';
         position: relative;
         width: calc(300% + #{rem-calc(map.get($grid-column-gutter, 'xs')) * 2});
         z-index: 10;
+
+        #{$self}--small & {
+            margin: rem-calc(60 0 0);
+        }
 
         @include breakpoint(xs down) {
             width: calc(350% + #{rem-calc(map.get($grid-column-gutter, 'xs')) * 2.5});
@@ -125,11 +137,15 @@ $self: '.stage';
         li {
             @include letter-spacing(200);
             background-color: color('white');
+            border-radius: 2em;
             display: block;
             font-weight: bold;
-            margin-bottom: rem-calc(16);
-            padding: rem-calc(10 12 12);
+            padding: rem-calc(10 12 12 22);
             text-transform: uppercase;
+
+            &:not(:last-child) {
+                margin-bottom: rem-calc(16);
+            }
 
             &::before {
                 content: none;
@@ -147,14 +163,11 @@ $self: '.stage';
         @include flex-grid-size(8);
         color: color('moss');
         line-height: calc(64 / 46);
+        margin-bottom: calc(64 / 46) * .75em;
+        margin-top: calc(64 / 46) * .6em;
         padding-bottom: .5em;
         position: relative;
         text-align: center;
-
-        .frame-pull-adjacent & {
-            margin-bottom: calc(64 / 46) * .75em;
-            margin-top: calc(64 / 46) * .6em;
-        }
 
         &::before,
         &::after {
