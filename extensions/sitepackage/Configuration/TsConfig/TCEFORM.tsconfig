@@ -147,6 +147,8 @@ TCEFORM {
                 half = Half
                 full = Full
             }
+
+            types.div.removeItems = half, full, extra-small, small, medium, large, extra-large
         }
 
         space_after_class {

@@ -8,11 +8,23 @@
                 <li
                     class="navmain__item {f:if(condition: item.hasSubpages, then: 'navmain__item--parent')}"
                 >
-                    <a
-                        href="{item.link}"
-                        class="navmain__link {f:if(condition: item.active, then: 'navmain__link--active')}"
-                        >{item.title}
-                    </a>
+                    <f:if
+                        condition="{item.data.doktype} === 4 && {item.hasSubpages}"
+                    >
+                        <f:then>
+                            <span
+                                class="navmain__link {f:if(condition: item.active, then: 'navmain__link--active')}"
+                                >{item.title}
+                            </span>
+                        </f:then>
+                        <f:else>
+                            <a
+                                href="{item.link}"
+                                class="navmain__link {f:if(condition: item.current, then: 'navmain__link--active')}"
+                                >{item.title}
+                            </a>
+                        </f:else>
+                    </f:if>
                     <f:if condition="{item.hasSubpages}">
                         <ul class="navmain__sub">
                             <f:for each="{item.children}" as="subItem">

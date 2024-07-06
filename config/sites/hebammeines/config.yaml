@@ -25,7 +25,6 @@ routeEnhancers:
             feed.rss: 9818
     FeedbackPlugin:
         type: Plugin
-        limitToPages: [1]
         routePath: "@{currentPage}"
         namespace: "tx_sitepackage_feedback"
         defaults:

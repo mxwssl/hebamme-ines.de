@@ -1,0 +1,7 @@
+tt_content.menu_pages.dataProcessing.10.dataProcessing.10 {
+    if.isTrue.field = media
+    references.fieldName = media
+    references.table = pages
+    sorting = sorting_foreign
+    as = media
+}

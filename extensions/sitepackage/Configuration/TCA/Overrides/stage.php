@@ -77,6 +77,36 @@ $GLOBALS['TCA']['tt_content']['types']['ce_stage'] = [
                                     'elementBrowserAllowed' => 'gif,jpg,jpeg,bmp,png',
                                 ]
                             ]
+                        ],
+                        'crop' => [
+                            'config' => [
+                                'cropVariants' => [
+                                    'default' => [
+                                        'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+                                        'allowedAspectRatios' => [
+                                            '16:9' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+                                                'value' => 16 / 9,
+                                            ],
+                                            '21:9' => [
+                                                'title' => '21:9',
+                                                'value' => 21 / 9,
+                                            ],
+                                            'NaN' => [
+                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                                                'value' => 0.0,
+                                            ],
+                                        ],
+                                        'selectedRatio' => 'NaN',
+                                        'cropArea' => [
+                                            'x' => 0.0,
+                                            'y' => 0.0,
+                                            'width' => 1.0,
+                                            'height' => 1.0,
+                                        ],
+                                    ],
+                                ]
+                            ]
                         ]
                     ]
                 ]

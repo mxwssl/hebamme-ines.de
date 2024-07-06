@@ -174,7 +174,7 @@ class CustomPreviewRenderer extends StandardContentPreviewRenderer
         $record = $item->getRecord();
         $this->getProcessedValue(
             $item,
-            'nav_title,starttime,endtime,fe_group,space_before_class,space_after_class',
+            'starttime,endtime,fe_group,space_before_class,space_after_class',
             $info
         );
 
