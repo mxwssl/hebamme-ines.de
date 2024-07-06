@@ -50,14 +50,15 @@ $self: '.feedback';
     }
 
     &__page {
+        align-items: center;
         border: 1px solid color('moss');
         border-radius: 50%;
         color: color('moss');
         cursor: pointer;
-        display: block;
+        display: flex;
         font-size: rem-calc(14);
         height: rem-calc(25);
-        padding-bottom: rem-calc(3);
+        justify-content: center;
         text-align: center;
         width: rem-calc(25);
 

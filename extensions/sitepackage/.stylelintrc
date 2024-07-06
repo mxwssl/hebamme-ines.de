@@ -14,7 +14,8 @@
         "except": ["first-nested", "after-comment"],
         "ignore": ["after-dollar-variable"]
       }
-    ]
+    ],
+    "selector-class-pattern": null
   },
   "value-keyword-case": [
     "lower",
