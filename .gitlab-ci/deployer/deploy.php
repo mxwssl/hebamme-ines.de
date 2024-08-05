@@ -5,10 +5,18 @@ namespace Deployer;
 require_once 'recipe/common.php';
 require_once 'contrib/rsync.php';
 
+// Import necessary host configuration
 import(__DIR__ . '/hosts.yml');
 
+// Set executing binaries
+set('bin/php', function () {
+    return '/usr/bin/php8.3-cli';
+});
+
+// Number of releases to keep
 set('keep_releases', 2);
 
+// Define shared directories
 set('shared_dirs', [
     'private/fileadmin',
     'private/uploads',
@@ -18,19 +26,18 @@ set('shared_dirs', [
     'var'
 ]);
 
+// Define shared files
 set('shared_files', [
     '.env',
     'private/typo3conf/LocalConfiguration.php'
 ]);
 
+// Define writable directories
 set('writable_dirs', [
     'public/typo3temp'
 ]);
 
-set('bin/php', function () {
-    return '/usr/bin/php8.3-cli';
-});
-
+// Set the source path for rsync
 set('rsync_src', '../../');
 
 set('rsync', [
@@ -48,7 +55,6 @@ set('rsync', [
         'extensions/**/yarn.lock',
         'extensions/**/Resources/Private/Frontend',
         'private/typo3conf/AdditionalConfigurationDevelopment.php',
-        'private/typo3conf/AdditionalConfigurationDevelopment.sample-mamp.php',
         'README.md',
     ],
     'exclude-file' => false,
@@ -62,17 +68,55 @@ set('rsync', [
     'timeout' => 300
 ]);
 
-// Tasks
-
-desc('Prepare staging');
-task('staging', function () {
+// General task to execute after rsync
+task('general', function () {
     run('mv {{release_path}}/config/server/{{alias}}/_.htaccess {{release_path}}/public/.htaccess');
-    run('mv {{release_path}}/config/server/{{alias}}/_.htpasswd {{release_path}}/public/.htpasswd');
     run('rm -r {{release_path}}/config/server/');
-})->select('stage=staging');
-after('rsync', 'staging');
+})
+->desc('Prepare release');
 
-desc('Deploy your project');
+// Add general task to execute after rsync
+after('rsync', 'general');
+
+// Optional task to execute before general for staging
+task('staging', function () {
+    run('mv {{release_path}}/config/server/{{alias}}/_.htpasswd {{release_path}}/public/.htpasswd');
+    writeln('Moved .htpasswd file to {{release_path}}/public');
+})
+->desc('Prepare staging')
+->select('stage=staging');
+
+// Add staging task to execute before general
+before('general', 'staging');
+
+// Automatically unlock if deploy fails.
+after('deploy:failed', 'deploy:unlock');
+
+// Migrate database before symlink new release.
+task('database:migrate', function () {
+    run('{{bin/php}} {{release_path}}/vendor/bin/typo3cms database:updateschema');
+})
+->desc('Migrate database');
+
+// Add database migration task before symlink new release
+before('deploy:symlink', 'database:migrate');
+
+// Clear cache after symlink new release
+task('typo3:cache:clear', function () {
+    run('{{bin/php}} {{release_path}}/vendor/bin/typo3cms cache:flush');
+})
+->desc('Clear TYPO3 Cache');
+
+// Clear cache after symlink new release
+after('deploy:symlink', 'typo3:cache:clear');
+
+// Deploy additional configuration manually
+task('deploy:config', function () {
+    runLocally('rsync -az {{rsync_src}}private/typo3conf/AdditionalConfiguration.php {{remote_user}}@{{hostname}}:{{deploy_path}}/shared/private/typo3conf/AdditionalConfiguration.php');
+    writeln('Moved AdditionalConfiguration to {{alias}}/shared/private/typo3conf');
+});
+
+// The deploy task
 task('deploy', [
     'deploy:setup',
     'deploy:lock',
@@ -83,155 +127,5 @@ task('deploy', [
     'deploy:writable',
     'deploy:clear_paths',
     'deploy:publish'
-]);
-
-// [Optional] If deploy fails automatically unlock.
-after('deploy:failed', 'deploy:unlock');
-
-// Migrate database before symlink new release.
-
-desc('Migrate database');
-task('database:migrate', function () {
-    run('{{bin/php}} {{release_path}}/vendor/bin/typo3cms database:updateschema');
-});
-before('deploy:symlink', 'database:migrate');
-
-// Clear cache after symlink new release
-desc('Clear TYPO3 Cache');
-task('typo3:cache:clear', function () {
-    run('{{bin/php}} {{release_path}}/vendor/bin/typo3cms cache:flush');
-});
-after('deploy:symlink', 'typo3:cache:clear');
-
-
-
-
-
-
-
-
-// require 'recipe/common.php';
-
-// // Load host configuration from YAML file
-// inventory('hosts.yml');
-
-
-// set('binaries', [
-//     'staging' => [
-//         'php' => ''
-//     ],
-//     'production' => [
-//         'php' => ''
-//     ]
-// ]);
-// set('keep_releases', 2);
-// /***************
-//  * Set shared directories
-//  */
-// $sharedDirectories = [
-//     'private/fileadmin',
-//     'private/uploads',
-//     'private/typo3temp/assets/_processed_',
-//     'private/typo3temp/assets/compressed',
-//     'private/typo3temp/assets/images',
-//     'var'
-// ];
-// set('shared_dirs', $sharedDirectories);
-// /***************
-//  * Set shared files
-//  */
-// $sharedFiles = [
-//     '.env',
-//     'private/typo3conf/LocalConfiguration.php'
-// ];
-// set('shared_files', $sharedFiles);
-// /***************
-//  * Set writable directories
-//  */
-// $writeableDirectories = [
-//     'public/typo3temp'
-// ];
-// set('writable_dirs', $writeableDirectories);
-// /***************
-//  * Set excluded files and folder for rsync
-//  */
-// $exclude = [
-//     '*.example',
-//     '.ddev',
-//     '.DS_Store',
-//     '.editorconfig',
-//     '.env',
-//     '.git',
-//     '.gitignore',
-//     '.gitlab-ci',
-//     '.gitlab-ci.yml',
-//     '.idea',
-//     'extensions/**/bower.json',
-//     'extensions/**/bower_components',
-//     'extensions/**/gulp',
-//     'extensions/**/node_modules',
-//     'extensions/**/package-lock.json',
-//     'extensions/**/package.json',
-//     'extensions/**/Resources/Private/Frontend',
-//     'private/typo3conf/AdditionalConfigurationDevelopment.php',
-//     'private/typo3conf/AdditionalConfigurationDevelopment.sample-mamp.php',
-//     'README.md',
-//     'Readme.rst',
-//     'Readme.txt',
-//     'Upgrading.rst',
-//     'Upgrading.txt'
-// ];
-// set('rsync', [
-//     'exclude' => array_merge($sharedDirectories, $sharedFiles, $exclude),
-//     'exclude-file' => false,
-//     'include' => [],
-//     'include-file' => false,
-//     'filter' => [],
-//     'filter-file' => false,
-//     'filter-perdir' => false,
-//     'flags' => 'az',
-//     'options' => ['delete'],
-//     'timeout' => 300
-// ]);
-// set('rsync_src', './');
-// /***************
-//  * TYPO3 related task
-//  */
-// task('typo3', function(){
-//     $binaries = get('binaries');
-//     $php = $binaries[get('stage')]['php'];
-//     run('cd {{release_path}} && ' . $php . ' vendor/bin/typo3cms install:generatepackagestates');
-//     run('cd {{release_path}} && ' . $php . ' vendor/bin/typo3cms install:extensionsetupifpossible');
-//     run('cd {{release_path}} && ' . $php . ' vendor/bin/typo3cms cache:flush');
-// });
-// /***************
-//  * Set staging task
-//  */
-// task('staging', function(){
-//     run('cd {{release_path}} && mv config/server/Staging/_.htaccess public/.htaccess');
-//     run('cd {{release_path}} && mv config/server/Staging/_.htpasswd public/.htpasswd');
-//     run('cd {{release_path}} && rm -r config/server/');
-// })->onStage('staging');
-// /***************
-//  * Set production task
-//  */
-// task('production', function(){
-//     run('cd {{release_path}} && mv config/server/Production/_.htaccess public/.htaccess');
-//     run('cd {{release_path}} && rm -r config/server/');
-// })->onStage('production');
-// /***************
-//  * Define deploy task
-//  */
-// task('deploy', [
-//     'deploy:prepare',
-//     'deploy:release',
-//     'rsync:warmup',
-//     'rsync',
-//     'deploy:shared',
-//     'deploy:writable',
-//     'typo3',
-//     'staging',
-//     'production',
-//     'deploy:symlink',
-//     'cleanup'
-// ]);
+])
+->desc('Deploy project');
