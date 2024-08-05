@@ -1,15 +1,34 @@
 @import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:seo/Configuration/TypoScript/XmlSitemap/setup.typoscript'
 
 @import 'EXT:sitepackage/Configuration/TypoScript/**/*.typoscript'
 
-plugin.tx_sitepackage.settings {
-    companyData {
-        title = {$plugin.tx_sitepackage.settings.companyData.title}
-        prefix = {$plugin.tx_sitepackage.settings.companyData.prefix}
-        phone = {$plugin.tx_sitepackage.settings.companyData.phone}
-        mobile = {$plugin.tx_sitepackage.settings.companyData.mobile}
-        email = {$plugin.tx_sitepackage.settings.companyData.email}
-        address = {$plugin.tx_sitepackage.settings.companyData.address}
+plugin {
+    tx_sitepackage.settings {
+        companyData {
+            title = {$plugin.tx_sitepackage.settings.companyData.title}
+            prefix = {$plugin.tx_sitepackage.settings.companyData.prefix}
+            phone = {$plugin.tx_sitepackage.settings.companyData.phone}
+            mobile = {$plugin.tx_sitepackage.settings.companyData.mobile}
+            email = {$plugin.tx_sitepackage.settings.companyData.email}
+            address = {$plugin.tx_sitepackage.settings.companyData.address}
+        }
+    }
+
+    tx_seo {
+        config {
+            xmlSitemap {
+                sitemaps {
+                    pages {
+                        config {
+                            excludedDoktypes = 4, 137, 138, 254, 255
+                            additionalWhere = AND (no_index = 0 OR no_follow = 0) AND uid != 11
+                            #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

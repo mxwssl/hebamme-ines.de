@@ -1,5 +1,9 @@
 base: "%env(BASE_DOMAIN)%"
 websiteTitle: "%env(SITE_NAME)%"
+errorHandling:
+    - errorCode: 404
+      errorHandler: Page
+      errorContentSource: "t3://page?uid=11"
 languages:
     - title: Deutsch
       enabled: true
@@ -27,6 +31,7 @@ routeEnhancers:
         type: Plugin
         routePath: "@{currentPage}"
         namespace: "tx_sitepackage_feedback"
+        limitToPages: [13]
         defaults:
             currentPage: "1"
         requirements:
@@ -34,5 +39,4 @@ routeEnhancers:
 routes:
     - route: robots.txt
       type: staticText
-      content: ""
-txCsseoXdefault: 0
+      content: "User-Agent: *\r\nAllow: /\r\n\r\nDisallow: /typo3/\r\nDisallow: /typo3conf/\r\nAllow: /typo3conf/ext/\r\nAllow: /typo3temp/\r\n\r\nDisallow: /*?id=*\r\nDisallow: /*?type=*\r\n\r\nSitemap: https://hebamme-ines.de/sitemap.xml\r\n"
