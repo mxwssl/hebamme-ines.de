@@ -76,7 +76,7 @@ $self: '.stage';
             width: rem-calc(42);
 
             &::before {
-                padding-bottom: math.percentage(61.87 / 41.96);
+                padding-bottom: math.div(61.87, 41.96) * 100%;
             }
         }
 
@@ -88,7 +88,7 @@ $self: '.stage';
             width: rem-calc(55);
 
             &::before {
-                padding-bottom: math.percentage(64.11 / 55.78);
+                padding-bottom: math.div(64.11, 55.78) * 100%;
             }
         }
 
@@ -100,7 +100,7 @@ $self: '.stage';
             width: rem-calc(58);
 
             &::before {
-                padding-bottom: math.percentage(67.37 / 56.97);
+                padding-bottom: math.div(67.37, 56.97) * 100%;
             }
         }
 
@@ -112,7 +112,7 @@ $self: '.stage';
             width: rem-calc(46);
 
             &::before {
-                padding-bottom: math.percentage(63.85 / 45.69);
+                padding-bottom: math.div(63.85, 45.69) * 100%;
             }
         }
 
@@ -124,7 +124,7 @@ $self: '.stage';
             width: rem-calc(70);
 
             &::before {
-                padding-bottom: math.percentage(72.68 / 69.2);
+                padding-bottom: math.div(72.68, 69.2) * 100%;
             }
         }
     }
@@ -142,7 +142,7 @@ $self: '.stage';
             content: '';
             display: block;
             left: 0;
-            padding-bottom: math.percentage(calc(236 / 1440));
+            padding-bottom: math.div(236, 1440) * 100%;
             position: absolute;
             right: 0;
             top: 0;
@@ -150,13 +150,13 @@ $self: '.stage';
             z-index: -1;
 
             #{$self}--small & {
-                padding-bottom: math.percentage(calc(194 / 1440));
+                padding-bottom: math.div(194, 1440) * 100%;
             }
         }
     }
 
     &__row {
-        $position: math.percentage(calc(100 / 16 / unitless-calc($global-width)));
+        $position: math.div(math.div(100, 16), unitless-calc($global-width)) * 100%;
         position: relative;
         z-index: 0;
 
@@ -260,27 +260,8 @@ $self: '.stage';
         position: relative;
         text-align: center;
 
-        &::before,
-        &::after {
-            background-image: none;
-            content: '[…]\00A0';
-            display: inline-block;
-            font-size: .8em;
-            height: auto;
-            opacity: .2;
-            vertical-align: baseline;
-            width: auto;
-            margin: {
-                bottom: 0;
-                left: -1.4em;
-            }
-        }
-
-        &::after {
-            margin: {
-                left: 0;
-                right: -1.4em;
-            }
+        &::before {
+            content: none;
         }
 
         cite {

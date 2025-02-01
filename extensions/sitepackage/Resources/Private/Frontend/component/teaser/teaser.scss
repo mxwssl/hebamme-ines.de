@@ -39,7 +39,7 @@ $self: '.teaser';
             width: 100%;
 
             @include breakpoint(lg) {
-                padding-bottom: math.percentage(calc(455 / 372));
+                padding-bottom: math.div(455, 372) * 100%;
             }
         }
     }
